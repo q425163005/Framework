@@ -1,0 +1,85 @@
+//好友相关
+syntax = "proto3";
+package PbFriend;
+
+
+//请求好友列表
+message CS_friend_list
+{
+}
+
+//收到好友列表
+message SC_friend_list
+{
+	repeated One_friend_info List = 1;	//好友列表
+}
+
+//请求添加好友
+message CS_friend_add
+{
+	int32 SID = 1;				//玩家SID
+}
+//收到添加好友
+message SC_friend_add
+{			
+	Enum_friend_addResult Result = 1;
+	One_friend_info Info = 2;	//收到好增加好友信息
+}
+
+//请求删除好友
+message CS_friend_remove
+{
+	int32 SID = 1;				//玩家SID
+}
+//收到删除好友
+message SC_friend_remove
+{
+	int32 SID = 1;				//玩家SID
+}
+
+//一个好友信息
+message One_friend_info
+{
+	int32 SID = 1;			//好友SID
+	string Name = 2;			//好友名字	
+	int32 VipLv = 3;			//好友VIP等级	
+	int32 Level = 4;			//好友等级
+	int32 FC = 5;			//好友战力
+	int32	Icon = 6;			//好友头像Id
+	bool IsOnline = 7;		//是否在线
+	bool IsSendAC = 8;		//是否赠送好友体力
+	bool IsGetAC = 9;		//是否收到好友赠送体力
+	bool IsRecAC = 10;		//是否领取好友体力
+}
+
+//请求给好友赠送体力
+message CS_friend_sendAC
+{
+	int32 SID = 1;				//玩家SID  0全部赠送
+}
+//收到给好友赠送体力
+message SC_friend_sendAC
+{
+	int32 SID = 1;		//玩家SID  0全部赠送
+}
+
+//请求领取好友赠送的体力
+message CS_friend_getAC
+{
+	int32 SID = 1;		//玩家SID  0全部领取
+}
+//收到领取好友赠送的体力
+message SC_friend_getAC
+{
+	repeated int32 SIDs = 1;		//成功领取的玩家SID
+	int32 GetACNum = 2;		//今日领取好友体力总次数
+}
+
+//添加好友返回结果
+enum Enum_friend_addResult
+{
+	FrSucceed = 0;		//成功
+	FrUnknown = 1;		//未知错误
+	FrFull = 2;			//好友已满
+	FrExist = 3;		//该玩家已是你的好友
+}

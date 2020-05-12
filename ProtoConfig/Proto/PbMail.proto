@@ -1,0 +1,74 @@
+//邮件相关
+syntax = "proto3";
+package PbMail;
+
+//收到邮件列表
+message SC_mail_list
+{
+	repeated One_mail_info MailList = 1;	//邮件列表信息
+}
+
+//收到新邮件
+message SC_mail_one
+{
+	One_mail_info OneMail = 1;	//邮件列表信息
+}
+
+//单个邮件信息
+message One_mail_info
+{
+	int32 SID = 1;			//邮件ID
+	string Title = 2;			//邮件标题	
+	bool IsOpen = 3;			//邮件是否已打开 (0未读,1已读)
+	bool IsItems = 4;		//邮件是否有道具奖励
+	int32 SendTime = 5;		//邮件发送时间戳
+	bool IsGet = 6;			//是否已领取附件
+}
+
+//请求邮件详细信息
+message CS_mail_detail
+{
+	int32 SID = 1;			//邮件SID
+}
+
+//收到邮件详细信息
+message SC_mail_detail
+{
+	int32 SID = 1;			//邮件SID
+	string Content = 2;		//邮件消息内容
+	repeated int32 Items = 3;	//附件物品模板Id
+	repeated int32 Nums = 4;	//附件物品数量
+}
+
+//请求打开邮件
+message CS_mail_open
+{
+	repeated int32 SIDList = 1;			//邮件SID(可同时打开多个)
+}
+//收到打开邮件
+message SC_mail_open
+{
+	repeated int32 SIDList = 1;			//邮件SID
+}
+
+//请求删除一个邮件
+message CS_mail_delete
+{
+	int32 SID = 1;						//邮件SID
+}
+//收到删除一个邮件
+message SC_mail_delete
+{
+	int32 SID = 1;						//邮件SID
+}
+
+//请求领取邮件附件奖励
+message CS_mail_getAward
+{
+	int32 SID = 1;						//邮件SID
+}
+//收到领取邮件附件奖励
+message SC_mail_getAward
+{
+	int32 SID = 1;						//邮件SID
+}

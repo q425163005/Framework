@@ -1,0 +1,96 @@
+//竞技场相关
+syntax = "proto3";
+import "PbHero.proto";
+import "PbBag.proto";
+import "PbCom.proto";
+package PbArena;
+
+//请求竞技场信息
+message CS_arena_info
+{
+
+}
+
+//收到竞技场信息
+message SC_arena_info
+{
+	int32 Score = 1;							//竞技场积分
+	int32 Rank = 2;								//竞技场排名
+	repeated One_arenaRecord RecordList = 3;	//挑战记录
+	int32 MaxScore = 4;							//最高积分
+	int32 WinNum = 5;							//挑战胜利次数
+	int32 WinMax = 6;							//最高连胜
+	int32 ShieldTime = 7;						//护盾有效到期时间戳
+}
+
+//一个挑战记录
+message One_arenaRecord
+{
+	int32 SID = 1;								//战报SID
+	int32 Type = 2;								//类型 0:挑战别人 1:被挑战
+	int32 EnemySID = 3;							//对手SID（0为npc）
+	string Name = 4;							//对手玩家名
+	repeated int32 Icon = 5;					//对手头像[头像、背景、角标]
+	int32 Win = 6;								//胜负 0:负 1:胜
+	int32 Time = 7;								//挑战时间
+	repeated int32 Res = 8;						//获得、损失资源（0积分 1食物 2石头）
+	bool FightBack = 9;				//是否战败反击过（在战败且没有反击过才显示反击按钮）
+	int32 ArenaScore = 10;						//竞技积分
+}
+
+//请求竞技场查找对手
+message CS_arena_find
+{
+	bool ReRoll = 1;							//是否重新查找（消耗食物）
+}
+//收到竞技场查找对手
+message SC_arena_find
+{
+	bool IsSuccess = 1;							//是否匹配成功（成功才有玩家信息）
+	//One_arena_player PlayerInfo = 2;			//玩家信息
+	PbCom.One_PlayerInfo PlayerInfo = 2;		//玩家信息
+}
+
+//一个竞技场玩家信息
+message One_arena_player
+{
+	int32 SID = 1;								//对手SID
+	string Name = 2;							//对手玩家名
+	int32 Level = 3;							//对手等级
+	int32 Score = 4;							//对手积分
+	int32 Rank = 5;								//对手排名
+	repeated PbHero.One_heroInfo Heros = 6;		//5个英雄信息
+	repeated PbBag.One_bag_equip Equips = 7;	//5个装备信息
+	repeated int32 Res = 8;				//挑战获得资源预览(0食物 1石头 2胜得积分 3负扣积分)
+	repeated int32 Icon = 9;					//对手头像[头像、背景、角标]
+}
+
+//请求挑战对手
+message CS_arena_fight
+{
+	int32 SID = 1;								//对手SID
+	int32 TeamId = 2;						//攻击者队伍
+}
+//收到挑战对手
+message SC_arena_fight
+{
+
+}
+
+//收到玩家战报有更新
+message SC_arena_recordChange
+{
+	//收到此消息后，下次打开角斗场界面时重新请求CS_arena_info
+}
+
+//请求战败后向对手反击
+message CS_arena_fightBack
+{
+	int32 SID = 1;								//战报SID
+	int32 EnemySID = 2;							//对手SID
+}
+//收到战败后向对手反击
+message SC_arena_fightBack
+{
+
+}

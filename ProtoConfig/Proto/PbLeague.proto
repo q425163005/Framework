@@ -1,0 +1,159 @@
+//联赛相关
+syntax = "proto3";
+import "PbCom.proto";
+package PbLeague;
+
+//请求联赛信息
+message CS_league_info
+{
+	
+}
+//收到联赛信息
+message SC_league_info
+{
+	Enum_league_state State = 1;				//联赛状态
+	int32 NextTime = 2;							//联赛状态下次刷新时间
+	int32 ElementRule = 3;						//本场联赛参赛英雄元素类型限制
+	int32 StarRule = 4;							//本场联赛参赛英雄星级限制
+	int32 WarRule = 5;							//本场联赛战斗特殊规则
+	int32 Score = 6;							//当前分数
+	int32 Rank = 7;								//当前排名
+	int32 RankLv = 8;							//当前排名范围(排名档次1-7)
+	int32 Energy = 9;							//剩余能量点
+	int32 LoseNum = 10;							//挑战失败次数
+	bool IsApply = 11;							//本场是否报名
+	repeated int32 DefHeroIds = 12;				//防御英雄ids(已报名才有)
+	repeated int32 DefEquipIds = 13;			//防御装备ids
+	repeated One_TopRank TopList = 14;			//最高分前10名(结束日才有)
+	repeated int32 AttackHeroIds = 15;			//上次攻击队伍英雄ids
+	repeated int32 AttackEquipIds = 16;			//上次攻击队伍装备ids
+}
+
+//一个top10排行
+message One_TopRank
+{
+	int32 SID = 1;								//玩家SID
+	string Name = 2;							//玩家名
+	int32 Score = 3;							//总分
+}
+
+//联赛状态结构枚举
+enum Enum_league_state
+{
+	CsReadyDay = 0;	//准备日
+	CsWarDay1 = 1;	//战斗日1
+	CsWarDay2 = 2;	//战斗日2
+	CsWarDay3 = 3;	//战斗日3
+	CsWarDay4 = 4;	//战斗日4
+	CsWarDay5 = 5;	//战斗日5
+	CsEndDay = 6;	//结束日
+}
+
+//请求联赛报名
+message CS_league_apply
+{
+	
+}
+//收到联赛报名
+message SC_league_apply
+{
+	bool IsSuccess = 1;							//是否报名成功
+	repeated int32 HeroIds = 2;					//防御英雄ids
+	repeated int32 EquipIds = 3;				//防御装备ids
+}
+
+//请求联赛匹配对手
+message CS_league_find
+{
+	
+}
+//收到联赛匹配对手
+message SC_league_find
+{
+	bool IsSuccess = 1;							//是否匹配成功（成功才有玩家信息）
+	PbCom.One_PlayerInfo PlayerInfo = 2;		//对手玩家信息
+	int32 Score = 3;							//可得积分
+	bool IsNpc = 4;								//是否为npc
+	int32 Rank = 5;								//排名
+}
+
+//请求联赛挑战对手
+message CS_league_fight
+{
+	int32 SID = 1;								//对手SID
+	repeated int32 HeroIds = 2;					//出战的英雄Ids
+	repeated int32 EquipIds = 3;				//使用的装备Ids
+}
+//收到联赛挑战对手
+message SC_league_fight
+{
+	int32 Energy = 1;							//剩余能量点
+}
+
+//请求联赛奖励
+message CS_league_award
+{
+	
+}
+//收到联赛奖励
+message SC_league_award
+{
+	int32 Score = 1;							//总分
+	int32 RankLv = 2;							//排名档次(1-7)
+	repeated PbCom.One_AwardItem Awards = 3;	//奖励列表
+}
+
+//请求修改防御队伍
+message CS_league_editTeam
+{
+	repeated int32 TeamHero = 1;				//防御队伍英雄
+	repeated int32 TeamEquip = 2;				//防御队伍装备
+}
+//收到修改防御队伍
+message SC_league_editTeam
+{
+	repeated int32 TeamHero = 1;				//防御队伍英雄
+	repeated int32 TeamEquip = 2;				//防御队伍装备
+}
+
+//请求联赛重置次数
+message CS_league_resetNum
+{
+	
+}
+//收到联赛重置次数
+message SC_league_resetNum
+{
+	int32 LoseNum = 1;							//挑战失败次数
+}
+
+//请求联赛日志
+message CS_league_logs
+{
+	
+}
+//收到联赛日志
+message SC_league_logs
+{
+	repeated One_leagueLog LogList = 1;			//挑战记录
+}
+//一个挑战记录
+message One_leagueLog
+{
+	int32 SID = 1;								//战报SID
+	int32 Type = 2;								//类型 0:挑战别人 1:被挑战
+	int32 EnemySID = 3;							//对手SID（0为npc）
+	string Name = 4;							//对手玩家名
+	repeated int32 Icon = 5;					//对手头像[头像、背景、角标]
+	int32 Win = 6;								//胜负 0:负 1:胜
+	int32 Time = 7;								//挑战时间
+	int32 Score = 8;							//获得、损失分数
+	int32 ArenaScore = 9;						//竞技积分
+}
+
+
+//收到联赛状态改变
+message SC_league_state
+{
+	Enum_league_state State = 1;				//联赛状态
+}

@@ -1,0 +1,434 @@
+//俱乐部相关
+syntax = "proto3";
+import "PbHero.proto";
+import "PbBag.proto";
+import "PbCom.proto";
+package PbClub;
+
+//收到玩家俱乐部信息(登录 或创建，加入发)
+message SC_club_info
+{	
+	string Name = 1;		//俱乐部名称	
+	int32 Level = 2;		//俱乐部等级	
+	int32 ApplyCount = 3;	//申请加入数量(红点用)
+	bool IsLogin = 4;		//是否登录发送  false/创建或加入
+	int32 SID = 5;			//俱乐部Id
+	int32 Icon = 6;			//俱乐部图标
+	int32 IconBg = 7;		//图标背景
+	int32 Score = 8;		//联盟所有成员总竞技积分
+	string Notice = 9;		//俱乐部公告
+	int32 Role = 10;		//当前俱乐部角色 EClubRole
+	bool IsNew = 11;		//是否有新公告
+}
+
+//俱乐部等级、科技等级发生变化(广播)
+message SC_club_levelChange
+{
+	int32 Type = 1;		//类型 EClubRsType	
+	int32 Level= 2;		//等级
+	int32 Exp = 3;		//经验
+}
+
+//请求俱乐部详细信息(打开界面请求)
+message CS_club_detailInfo
+{
+}
+//收到俱乐部详细信息
+message SC_club_detailInfo
+{
+	string Notice = 1;		//俱乐部公告
+	string ChairmanName = 2;	//会长名
+	string Name = 3;		//俱乐部名
+	int32 Rank = 4;			//俱乐部排名
+	int32 Level = 5;			//俱乐部等级
+	int32 Country = 6;			//国家地区图标
+	string Des = 7;				//俱乐部说明
+	int32 JoinType = 8;			//加入类型(0无需同意直接加入 1需验证)
+	int32 JoinScore = 9;		//加入要求竞技积分
+	bool JoinWar = 10;			//是否参加联盟战
+	int32 SID = 11;				//俱乐部SID
+	int32 Role = 15;			//当前俱乐部角色 EClubRole
+	int32 Icon = 16;			//俱乐部图标
+	int32 Score = 17;			//联盟积分
+	int32 IconBg = 18;			//俱乐部图标背景
+}
+
+
+//请求俱乐部列表
+message CS_club_list
+{
+	string SearchName = 1;			//搜索俱乐部名字
+}
+//收到俱乐部列表
+message SC_club_list
+{
+	repeated One_club_info ClubList = 1; //俱乐部列表信息
+}
+
+//一个俱乐部列表信息
+message One_club_info
+{
+	int32 SID = 1;			//俱乐部SID
+	string Name = 2;			//俱乐部名称	
+	string ChairmanName = 3;	//会长名
+	int32 Level = 4;			//俱乐部等级
+	int32 MemberNum = 5;		//成员数
+	int32 Icon = 6;			//俱乐部图标
+	bool IsApply = 7;		//是否已申请加入	
+	int32 JoinType = 8;		//加入类型(0无需同意直接加入 1需验证) 
+	int32 Score = 9;		//积分
+	int32 IconBg = 10;			//俱乐部图标背景
+}
+//请求俱乐部列表的详细信息
+message CS_club_listDetailInfo
+{
+	int32 SID = 1;			//俱乐部SID
+}
+//收到俱乐部列表的详细信息
+message SC_club_listDetailInfo
+{
+	int32 SID = 1;			//俱乐部SID
+	string Notice = 2;		//俱乐部公告	
+	int32 Level = 3;			//俱乐部等级
+	int32 Exp = 4;			//俱乐部经验(财值)	
+	int32 Rank = 5;			//排名
+	int32 MemberNum = 6;		//成员数
+	int32 Icon = 11;			//俱乐部图标
+	string Name = 12;		//俱乐部名称	
+	string ChairmanName = 13;	//会长名
+	bool IsApply = 14;		//是否已申请加入	
+	int32 Score = 15;			//联盟积分
+	repeated One_club_memberInfo MemberList = 16; //成员列表
+	string Des = 17;			//俱乐部说明
+	int32 JoinType = 18;		//加入类型(0无需同意直接加入 1需验证)
+	int32 JoinScore = 19;		//加入要求竞技积分
+	int32 Country = 20;			//国家地区图标
+	int32 IconBg = 21;			//俱乐部图标背景
+}
+
+//请求创建俱乐部
+message CS_club_create
+{
+	string Name = 1;		//俱乐部名称
+	string Des = 2;			//俱乐部说明
+	int32 Icon = 3;			//图标
+	int32 IconBg = 4;		//图标背景
+	int32 JoinType = 8;			//加入类型(0无需同意直接加入 1需验证)
+	int32 JoinScore = 9;		//加入要求竞技积分
+	int32 Country = 10;			//国家地区图标
+}
+//收到创建俱乐部结果(创建成功，先返回SC_club_info)
+message SC_club_create
+{
+	Enum_createClub_result Result = 1;		//创建结果
+}
+
+//请求加入俱乐部
+message CS_club_join
+{
+	int32 Id = 1;		//俱乐部SID
+}
+//收到加入俱乐部结果(加入成功，先返回SC_club_info)
+message SC_club_join
+{
+	int32 Id = 1;		//俱乐部SID
+	int32 State = 2;		//0 成功 1你已提交过申请 2俱乐部不存在 3成员已满 4积分不足
+}
+
+//创建俱乐部结果
+enum Enum_createClub_result
+{
+	ClubUnknown = 0;	//未知错误
+	ClubSucceed = 1;	//成功
+	ClubSameName = 2;	//俱乐部名已存在
+	ClubMaxLen = 3;		//俱乐部名字符过长
+	ClubIllegalChar = 4;	//俱乐部名中有非法字符
+	ClubNoPermission = 5;	//没有权限
+}
+
+//请求修改俱乐部设置
+message CS_club_editSetting
+{
+	string Notice = 1;		//俱乐部公告
+	string Name = 2;		//俱乐部名称
+	string Des = 3;			//俱乐部说明
+	int32 Icon = 4;			//图标
+	bool JoinWar = 5;			//是否参加联盟战争
+	int32 JoinType = 6;			//加入类型(0无需同意直接加入 1需验证)
+	int32 JoinScore = 7;		//加入要求竞技积分
+	int32 Country = 8;			//国家地区图标
+	int32 IconBg = 10;			//俱乐部图标背景
+}
+
+//收到修改俱乐部设置
+message SC_club_editSetting
+{
+	Enum_createClub_result Result = 1;		//创建结果（返回成功才有以下数据）
+	string Notice = 2;		//俱乐部公告
+	string Name = 3;		//俱乐部名称
+	string Des = 4;			//俱乐部说明
+	int32 Icon = 5;			//图标
+	bool JoinWar = 6;			//是否参加联盟战争
+	int32 JoinType = 7;			//加入类型(0无需同意直接加入 1需验证)
+	int32 JoinScore = 8;		//加入要求竞技积分
+	int32 Country = 9;			//国家地区图标
+	int32 IconBg = 10;			//俱乐部图标背景
+}
+
+//请求修改俱乐部公告
+message CS_club_editNotice
+{
+	string Notice = 1;		//俱乐部公告
+}
+//收到修改俱乐部公告
+message SC_club_editNotice
+{
+	Enum_createClub_result Result = 1;		//创建结果（返回成功才有以下数据）
+	string Notice = 2;		//俱乐部公告
+}
+
+//收到俱乐部新公告推送
+message SC_club_newNotice
+{
+	string Notice = 1;		//俱乐部公告
+}
+
+//请求俱乐部成员信息列表
+message CS_club_memberList
+{
+}
+//收到俱乐部成员信息列表
+message SC_club_memberList
+{
+	repeated One_club_memberInfo ClubList = 1; //俱乐部列表信息
+}
+
+//一个俱乐部成员信息
+message One_club_memberInfo
+{
+	int32 SID = 1;		//成员SID
+	string Name = 2;		//成员名	
+	repeated int32 Icon = 3;//成员头像[头像、背景、角标]
+	int32 Level = 4;		//成员等级	
+	int32 Role = 5;		//成员角色 EClubRole
+	int32 Score = 6;	//俱乐部积分
+	int32 LogoutTime = 7;	//最后离线时间  (0)在线
+}
+
+//请求俱乐部一个联盟成员详细信息
+message CS_club_memberPlayer
+{
+	int32 SID = 1;		//成员SID
+}
+//收到俱乐部一个联盟成员详细信息
+message SC_club_memberPlayer
+{
+	//One_member_player PlayerInfo = 1;			//玩家信息
+	PbCom.One_PlayerInfo PlayerInfo = 1;		//玩家信息
+}
+//一个俱乐部玩家详细信息
+message One_member_player
+{
+	int32 SID = 1;								//玩家SID
+	string Name = 2;							//玩家名
+	int32 Level = 3;							//等级
+	int32 Score = 4;							//玩家积分
+	int32 Rank = 5;								//玩家排名
+	repeated PbHero.One_heroInfo Heros = 6;		//5个英雄信息
+	repeated PbBag.One_bag_equip Equips = 7;	//5个装备信息
+	repeated int32 Icon = 8;					//玩家头像[头像、背景、角标]
+	int32 JoinTime = 9;							//加入时间
+}
+
+
+//请求俱乐部申请列表
+message CS_club_applyList
+{
+}
+//收到俱乐部申请列表
+message SC_club_applyList
+{
+	repeated One_club_applyInfo List = 1; //俱乐部列表信息
+}
+//收到俱乐部申请信息(广播给有权限同意的人)
+message SC_club_newApply
+{
+	One_club_applyInfo One = 1;
+}
+//一个俱乐部成员申请信息
+message One_club_applyInfo
+{
+	int32 SID = 1;		//成员SID
+	string Name = 2;		//成员名	
+	repeated int32 Icon = 3;//成员头像[头像、背景、角标]
+	int32 Level = 4;		//成员等级	
+	int32 Score = 5;		//成员积分
+	int32 Time = 6;			//申请时间
+}
+
+//请求一个申请玩家详细信息
+message CS_club_applyPlayer
+{
+	int32 SID = 1;			//玩家SID
+}
+//收到一个申请玩家详细信息
+message SC_club_applyPlayer
+{
+	PbCom.One_PlayerInfo PlayerInfo = 1;			//玩家信息
+	bool IsJoin = 2;			//是否已加入其他俱乐部（已加入时才有下面的数据）
+	int32 SID = 3;			//俱乐部SID
+	string Name = 4;			//俱乐部名称	
+	string ChairmanName = 5;	//会长名
+	int32 Level = 6;			//俱乐部等级
+	int32 Icon = 7;			//俱乐部图标
+	int32 IconBg = 8;			//俱乐部图标背景
+}
+
+//请求俱乐部日志
+message CS_club_log
+{
+}
+
+//收到俱乐部日志
+message SC_club_log
+{
+	repeated One_club_log LogList = 1;
+}
+
+//一个俱乐部日志
+message One_club_log
+{
+	int32 LogType = 1;	//日志类型 EClubLog
+	string OpName = 2;	//操作人
+	string ByName = 3;	//被操作人
+	int32 Value = 4;		//日志参数值 官位变化为 EClubRole
+	int32 Time =5;		//时间
+}
+
+//收到俱乐部一条新日志
+message SC_club_newLog
+{
+	One_club_log Log = 1;
+}
+
+
+//请求俱乐部相关操作
+message CS_club_operation
+{
+	Enum_club_operation OpType = 1;	//成员操作类型  同意加入 拒绝加入 开除 官位提升 官位下降 退出公会 解散公会 公会转让 新公告 成员升级
+	int32 MemberSID = 2;			//被操作的成员Id	(没操作对象不传)
+}
+//收到俱乐部相关操作
+message SC_club_operation
+{
+	Enum_clubOperation_result Result = 1;	//操作结果
+	Enum_club_operation OpType = 2;		//操作类型  同意加入 拒绝加入 开除 官位提升 官位下降 退出公会 解散公会 公会转让	
+	int32 MemberSID = 3;				//被操作的成员Id	(没操作对象不传)  如果SID和自己相同，则被其它人操作了自己
+	int32 MemberRole = 4;				//成员角色 EClubRole (官位改变)  //转让没发，客户端把自己设为普通成员，被操作的设为会长
+	repeated int32 JoinMebSIds = 5;		//全部同意成功加入的角色ID
+	int32 MemberNum = 6;				//俱乐部成员数
+}
+
+//收到离开公会消息
+message SC_club_exit
+{
+	int32 Type = 1;		//0退出 1开除 2解散
+}
+
+//收到职位变更消息
+message SC_club_roleChange
+{
+	int32 Role = 1;		//EClubRole
+}
+
+//请求俱乐部发送邀请消息
+message CS_club_invite
+{
+}
+
+//俱乐部操作类型
+enum Enum_club_operation
+{
+	CopAgreeJoin = 0;	//同意加入
+	CopUnAgreeJoin = 1;	//拒绝加入
+	CopKick = 2;		//开除
+	CopRoleUp = 3;		//官位提升
+	CopRoleDown = 4;	//官位下降
+	CopExitClub = 5;		//退出公会
+	CopDissolveClub = 6;	//解散公会
+	CopTransfer = 7;		//会长转让
+	CopAgreeJoinAll = 8;	//全部同意加入
+	CopUnAgreeJoinAll = 9;//全部拒绝加入
+}
+
+//俱乐部操作结果
+enum Enum_clubOperation_result
+{
+	CorUnknown = 0;		//未知错误
+	CorSucceed = 1;		//成功
+	CorUnRight = 2;		//没有权限	
+	CorMemberFull = 3;	//公会成员已满
+	CorDissoFailure = 4;	//公会还有其它成员，解散失败
+	CorNotFindMember = 5;//未找到成员，或成员已离开公会
+	CorRoleMax = 6;		//官员职位达到上限	
+}
+
+//请求泰坦数据
+message CS_titan_info
+{
+
+}
+//收到泰坦数据
+message SC_titan_info
+{
+	int32 TitanId = 1;		//泰坦怪物Id
+	int32 LastHp = 2;		//剩余血量
+	bool IsEnd = 3;			//是否结束
+	int32 RefreshTime = 4;	//刷新时间(未结束时显示结束倒计时，已结束显示下次刷新倒计时)
+	repeated One_titan_rank RankList = 5;//伤害排行
+	repeated One_titan_log TitanLog = 6;//泰坦日志列表
+	bool IsOpen = 7;		//是否开启泰坦（开启才有上面的数据）
+}
+//一个泰坦排行
+message One_titan_rank
+{
+	int32 SID = 1;			//成员SID
+	string MemberName = 2;	//成员名
+	repeated int32 Icon = 3;//成员头像[头像、背景、角标]
+	int32 Damage = 4;		//伤害
+}
+//一个泰坦日志
+message One_titan_log
+{
+	int32 Time = 1;			//时间
+	string Name = 2;		//成员名
+	int32 Damage = 3;		//伤害
+}
+
+//请求进入泰坦战
+message CS_titan_war
+{
+	int32 TeamId = 1;
+}
+//收到进入泰坦战
+message SC_titan_war
+{
+
+}
+
+//请求泰坦奖励
+message CS_titan_award
+{
+
+}
+//收到泰坦奖励
+message SC_titan_award
+{
+	int32 TitanId = 1;		//泰坦怪物Id
+	int32 LastHp = 2;		//剩余血量
+	int32 Level = 3;		//战斗评级
+	int32 Damage = 4;		//总伤害
+	repeated PbCom.One_AwardItem Awards = 5;//普通奖励
+	repeated PbCom.One_AwardItem EliteAwards = 6;//精英奖励
+	repeated PbCom.One_AwardItem LastHitAwards = 7;//最后一击奖励
+}

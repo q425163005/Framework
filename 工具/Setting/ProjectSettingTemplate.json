@@ -1,0 +1,27 @@
+[
+	{
+		"Id":1,
+		"Name":"赛马3D",
+		"ProjectDir":"D:/UnityProject/SaiMa",
+		"ClientDir":"$ProjectDir$/Client/HorseRacing",
+		"ClientHotDir":"$ProjectDir$/Client/HotFix_HorseRacing",		
+		"ServerDir":"$ProjectDir$/Server/GameServer",
+		"ConfigDir":"$ProjectDir$/ProtoConfig/Config",
+		"ProtoDir":"$ProjectDir$/ProtoConfig/Proto",
+		"GMServerDir":"$ProjectDir$/GM/GMServer",
+		"CodeOutId":1
+	},
+	{
+		"Id":2,
+		"Name":"赛马3D Test",
+		"ProjectDir":"D:/UnityProject/SaiMaTest",
+		"ClientDir":"$ProjectDir$/Client/HorseRacing",
+		"ClientHotDir":"$ProjectDir$/Client/HotFix_HorseRacing",		
+		"ServerDir":"$ProjectDir$/Server/GameServer",
+		"ConfigDir":"$ProjectDir$/ProtoConfig/Config",
+		"ProtoDir":"$ProjectDir$/ProtoConfig/Proto",
+		"GMServerDir":"$ProjectDir$/GM/GMServer",
+		"CodeOutId":1
+	},
+ 
+]

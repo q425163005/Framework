@@ -1,0 +1,23 @@
+[
+	{
+		"Platform":"Android",
+		"AppVersion":"1.0.0",
+		"ResVersion":1240758,
+		"ResURL": "http://192.168.31.211:9821/AssetBundles/Android",
+		"AppDownloadURL": "http://180.76.242.101:9851/APK/KnightsPuzzles.AccountPwd_T1.0.1_20191204_1201.apk"
+	},
+	{
+		"Platform":"iOS",
+		"AppVersion":"1.0.0",
+		"ResVersion":1240758,	
+		"ResURL": "http://192.168.31.211:9821/AssetBundles/iOS",
+		"AppDownloadURL": "http://www.baidu.com"
+	},
+	{
+		"Platform":"Windows",
+		"AppVersion":"1.0.0",
+		"ResVersion":1240874,	
+		"ResURL": "http://192.168.31.211:9821/AssetBundles/Windows",
+		"AppDownloadURL": "http://www.baidu.com"
+	}
+]

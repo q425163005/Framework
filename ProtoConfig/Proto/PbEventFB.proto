@@ -1,0 +1,118 @@
+//活动副本相关
+syntax = "proto3";
+import "PbCom.proto";
+package PbEventFB;
+
+//请求活动副本信息（进游戏首次打开界面请求）
+message CS_eventFB_info
+{
+
+}
+
+//收到活动副本信息
+message SC_eventFB_info
+{
+	repeated One_eventFB OpenList = 1;		//正在开放的活动副本列表
+}
+
+//一个活动副本数据
+message One_eventFB
+{
+	int32 EventId = 1;						//活动编号
+	repeated One_diff Diffs = 3;			//难度数据
+}
+
+//一个活动副本难度数据
+message One_diff
+{
+	int32 DiffId = 1;						//难度1-3
+	int32 MaxLevelId = 2;					//已通关的最大关卡Id
+	int32 Score = 3;						//挑战活动积分
+	int32 Rank = 4;							//挑战活动排名
+}
+
+//活动副本类型结构枚举
+enum Enum_eventFB_type
+{
+	EtNormal = 0;	//普通活动
+	EtChallenge = 1;//挑战活动
+	EtFestival = 2;	//节日活动
+	EtTrial = 3;	//试炼活动
+}
+
+//收到活动列表更新状态（下次打开活动界面时重新请求数据）
+message SC_eventFB_update
+{
+
+}
+
+//请求活动副本挑战
+message CS_eventFB_war
+{
+	int32 LevelId = 1;						//副本关卡Id
+	repeated int32 HeroIds = 2;				//出战的英雄Ids
+	repeated int32 EquipIds = 3;			//使用的装备Ids
+}
+
+//收到活动副本挑战
+message SC_eventFB_war
+{
+	int32 ActionPoint = 1;  				//副本行动点数
+}
+
+
+//请求活动副本挑战活动排名
+message CS_eventFB_rank
+{
+	int32 Level = 1;						//难度1-3
+}
+//收到活动副本挑战活动排名
+message SC_eventFB_rank
+{
+	int32 Level = 1;						//难度1-3
+	repeated One_eventFB_rank Ranks = 2;	//排名数据
+}
+//一个活动排行数据
+message One_eventFB_rank
+{
+	int32 PID = 1;							//玩家SID
+	string Name = 2;						//玩家名
+	int32 Level = 3;						//玩家等级
+	repeated int32 Icon = 4;				//玩家头像[头像、背景、角标]
+	int64 Score = 5;						//积分
+	int32 Rank = 6;							//排名
+	int32 ArenaScore = 7;					//竞技积分
+}
+
+//请求挑战活动通关奖励(当前难度所有关卡通过后可领)
+message CS_eventFB_passAward
+{
+	int32 LevelId = 1;						//当前难度最大关卡Id
+}
+//收到挑战活动通关奖励
+message SC_eventFB_passAward
+{
+	int32 DiffId = 1;						//难度1-3
+	int32 LevelId = 2;						//成功领取的奖励关卡ID
+	repeated PbCom.One_AwardItem Awards = 3;//获得的奖励列表
+}
+
+
+//请求挑战活动排名奖励
+message CS_eventFB_rankAward
+{
+	
+}
+//收到挑战活动排名奖励
+message SC_eventFB_rankAward
+{
+	repeated One_diffAward Diffs = 1;		//3个难度的奖励数据
+}
+//一个活动副本难度排名奖励数据
+message One_diffAward
+{
+	int32 DiffId = 1;						//难度1-3
+	int32 Score = 2;						//大师积分
+	int32 Rank = 3;							//挑战活动排名
+	repeated PbCom.One_AwardItem Awards = 4;//奖励列表
+}

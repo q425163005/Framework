@@ -1,0 +1,123 @@
+//登录模块
+syntax = "proto3";
+package PbLogin;
+
+//请求登录验证
+message CS_login_verify
+{
+	string PlatformId = 1;				//平台用户唯一Id	（某些SDK可能要在服务器获取）
+	Enum_login_platform Platform =2;		//平台类型 0账密登录(自己平台) 1自接
+	string Token = 3;				//平台返回的token 服务器收到token向平台验证
+	int32 ServerId = 4;				//服务器Id
+	string Param1 = 5;				//参数1,每个平台不一样,跟据需求传
+	string ChId = 6;					//渠道Id
+	int32 Lang = 7;					//登录选择的默认语言
+	Enum_login_type LoginType = 8;	//登录类型 1游客 2facebook 3Apple
+}
+
+//收到登录验证
+message SC_login_verify
+{
+	Enum_verify_result Result = 1;		//验证结果
+	Enum_login_platform Platform =2;	//平台类型
+	string DefaultName = 3;				//验证成功，返回平台默认名字	
+	string PlatformId = 4;				//验证成功，返回平台用户的唯一Id		
+	int32 ServerTime = 5;				//服务器时间
+}
+
+//收到登录成功或创角成功返回角色信息
+message SC_login_playerInfo
+{
+	int32 SID = 1;			//角色SID
+	string Name = 2;			//角色名
+	int32 Level = 3;			//角色等级
+	int32 Exp = 4;			//当前经验
+	int64 Gold = 9;			//金币
+	int32 Ticket = 10;		//钻石
+	int32 Food = 11;			//食物
+	int32 Stone = 12;		//石头	
+	int32 People = 13;		//人口
+	int32 KeepLoginNum = 14;	//连续登录次数
+	int32 RegDay = 15;		//注册天数(可做登录天数)
+	repeated int32 Guides = 16;	//已完成的指引
+	repeated int32 Icon = 17;	//角色头像[头像、背景、角标]
+	string Id = 18;			//玩家唯一Id
+	string PfUserId = 19;		//平台的用户Id
+	int32 ActionPoint = 20;	//副本行动点数
+	int32 ArenaPoint = 21;		//竞技行动点数
+	int32 BossPoint = 22;		//公会Boss行动点
+	repeated int32 FBStageMaxId = 23;	//副本最高通关关卡等级   [0第一章的...]
+	int32 BuildNumLimit = 24;			//建筑队列数量（同时建造、升级的数量）
+	int32 ReNameNum = 25;				//已改名次数
+	int32 NextAddAPTime = 26;			//下次恢复副本行动点时间戳(没有为0)
+	int32 NextAddARPTime = 27;			//下次恢复竞技行动点时间戳(没有为0)
+	int32 NextAddBPTime = 28;			//下次恢复公会行动点时间戳(没有为0)
+	int32 MonthHeroId = 29;				//月度英雄Id
+	int32 LastSummonTime = 30;			//上次每日召唤英雄时间戳
+	int32 ElementSummonId = 31;			//元素召唤Id
+	int32 MaxCombo = 32;				//最大连击
+	int32 TitanKillNum = 33;			//击杀泰坦次数
+	int32 TitanLastHit = 34;			//泰坦最后一击次数
+	repeated int32 ExtraNum = 35;		//额外英雄卡槽、战队数量
+}
+
+
+//收到服务器通知客户端进入游戏,进入游戏必要数据发送完成
+message SC_login_enter
+{
+	int32 ServerTime = 1;	//服务器当前时间截，秒
+}
+
+//平台登录方式
+enum Enum_login_platform
+{
+	LpAccountPwd = 0;	//账号密码登录
+	LpOwn = 1;			//自接
+}
+
+//登录验证结构枚举
+enum Enum_verify_result
+{
+	VrUnknown = 0;	//未知错误
+	VrSucceed = 1;	//登录成功
+	VrFailure = 2;	//验证失败
+	VrServerIdError = 3;	//服务器Id错误
+	VrChError = 4;		//渠道未开放
+	VrBanned = 5;		//禁止登陆
+}
+
+//登录类型
+enum Enum_login_type
+{
+	LtAccountPwd = 0;	//账号密码登录
+	LtGuest = 1;		//游客登录
+	LtFacebook = 2;		//facebook登录
+	LtApple = 3;		//apple登录
+}
+
+
+//请求游客绑定
+message CS_login_bind
+{
+	string PlatformId = 1;				//平台用户唯一Id	（某些SDK可能要在服务器获取）
+	string Token = 2;				//平台返回的token 服务器收到token向平台验证
+	Enum_login_type LoginType = 3;	//登录类型 1游客 2facebook 3Apple
+}
+
+//收到游客绑定
+message SC_login_bind
+{
+	Enum_bind_result Result = 1;		//验证结果
+	string PlatformId = 2;				//验证成功，返回平台用户的唯一Id		
+	Enum_login_type LoginType = 3;	//登录类型 1游客 2facebook 3Apple
+}
+
+//绑定验证结构枚举
+enum Enum_bind_result
+{
+	BrUnknown = 0;	//未知错误
+	BrSucceed = 1;	//绑定成功
+	BrFailure = 2;	//验证失败
+	BrIdUsed = 3;	//Id已用于其他账号
+	BrChError = 4;		//渠道未开放
+}

@@ -1,0 +1,189 @@
+//英雄信息
+syntax = "proto3";
+package PbHero;
+
+
+//收到英雄列表
+message SC_hero_list
+{
+	repeated One_heroInfo List = 1;
+	One_teamInfos TeamInfo = 2;	//队伍信息
+}
+
+//一个英雄数据
+message One_heroInfo
+{
+	int32 SID = 1;						//英雄SID
+	int32 TemplID = 2;					//模板id	
+	int32 Level = 3;					//英雄等级
+	int32 Exp = 4;						//英雄经验
+	int32 BreakLv = 5;					//突破等级
+	repeated int32 SkillsLv = 6;		//技能等级
+	repeated int32 Dowers = 7;			//天赋加点
+	bool IsOpen = 8;					//是否激活天赋
+}
+
+//队伍信息
+message One_teamInfos
+{
+	int32 DefTeam = 1;	//防御队伍
+	repeated int32 Team1 = 2;	//队伍1
+	repeated int32 Team2 = 3;   //队伍2
+	repeated int32 Team3 = 4;   //队伍3
+	repeated int32 Team4 = 5;   //队伍4
+	repeated int32 Team5 = 6;   //队伍5
+	repeated int32 TeamItems1 = 7;	//队伍1道具列表
+	repeated int32 TeamItems2 = 8;	//队伍2道具列表
+	repeated int32 TeamItems3 = 9;	//队伍3道具列表
+	repeated int32 TeamItems4 = 10;	//队伍4道具列表
+	repeated int32 TeamItems5 = 11;	//队伍5道具列表
+	repeated int32 TeamEquip1 = 12;	//队伍1装备列表
+	repeated int32 TeamEquip2 = 13;	//队伍2装备列表
+	repeated int32 TeamEquip3 = 14;	//队伍3装备列表
+	repeated int32 TeamEquip4 = 15;	//队伍4装备列表
+	repeated int32 TeamEquip5 = 16;	//队伍5装备列表
+	repeated int32 ClubWarTeam = 17;	//联盟战防御队伍英雄
+	repeated int32 ClubWarEquip = 18;	//联盟战防御队伍装备
+	repeated int32 LeagueTeam = 19;		//联赛防御队伍英雄
+	repeated int32 LeagueEquip = 20;	//联赛防御队伍装备	
+}
+
+//请求修改队伍信息
+message CS_teamInfo_edit
+{
+	One_teamInfos TeamInfo = 1;	//队伍信息
+}
+
+//收到修改修改成功
+message SC_teamInfo_edit
+{
+}
+
+
+
+//获得一个新英雄
+message SC_hero_new
+{
+	One_heroInfo Hero = 1;			//新的英雄数据
+	Enum_hero_newType NewType = 2;	//英雄来源
+}
+
+//收到队伍英雄改变
+message SC_teamInfo_change
+{
+	int32 TeamId = 1;				//队伍Id
+	repeated int32 Team1 = 2;		//队伍1
+}
+
+//请求英雄升级
+message CS_hero_levelUp
+{
+	int32 SID = 1;	//英雄SID
+	repeated int32 ResSIDs = 2;	//当资源吞食的英雄Id
+}
+
+//收到英雄升级结果
+message SC_hero_levelUp
+{
+	int32 SID = 1;				//英雄ID
+	int32 Level = 2;				//英雄等级
+	int32 Exp = 3;				//英雄经验
+	repeated int32 ResSIDs = 4;	//当资源吞食的英雄Id
+	repeated int32 SkillsLv = 5;//技能等级
+}
+
+
+//请求英雄突破
+message CS_hero_break
+{
+	int32 SID = 1;				//英雄SID
+}
+
+//收到英雄突破结果
+message SC_hero_break
+{
+	int32 SID = 1;				//英雄SID
+	int32 Level = 2;			//英雄等级
+	int32 Exp = 3;				//英雄经验
+	int32 BreakLv = 4;			//英雄突破等级
+	repeated int32 SkillsLv = 5;//技能等级
+}
+
+//请求英雄升星结果
+message CS_hero_starLvUp
+{
+	int32 SID = 1;				//英雄SID
+	repeated int32 ResSIDs = 2;	//当资源吞食的英雄Id
+}
+
+//收到英雄升星结果
+message SC_hero_starLvUp
+{
+	int32 SID = 1;				//英雄SID
+	int32 Level = 2;			//英雄等级
+	int32 Exp = 3;				//英雄经验
+	int32 TemplID = 4;			//英雄升级后的模板ID
+	repeated int32 ResSIDs = 5;	//当资源吞食的英雄Id
+}
+
+//请求技能升级
+message CS_hero_skillLvUp
+{
+	int32 SID = 1;				//英雄SID
+	int32 SkillId = 2;			//技能Id
+}
+//收到技能升级结果
+message SC_hero_skillLvUp
+{
+	int32 SID = 1;				//英雄SID
+	int32 SkillId = 2;			//技能Id
+	bool IsSuccess = 3;			//是否升级成功
+	int32 SkillLv = 4;			//技能等级
+}
+
+//获得新英雄类型
+enum Enum_hero_newType
+{
+	HnNone = 0;					//无类型
+	HnTrainOutput = 1;			//训练场生产
+}
+
+//请求英雄激活天赋
+message CS_hero_dowerActive
+{
+	int32 SID = 1;				//英雄SID
+}
+
+//收到英雄激活天赋
+message SC_hero_dowerActive
+{
+	int32 SID = 1;				//英雄SID
+	bool IsOpen = 2;			//是否激活天赋
+}
+
+//请求重置英雄天赋
+message CS_hero_dowerReset
+{
+	int32 SID = 1;				//英雄SID
+	bool IsTicket = 2;			//是否使用钻石消耗 (0使用重置纹章 1使用钻石)
+}
+
+//收到重置英雄天赋
+message SC_hero_dowerReset
+{
+	int32 SID = 1;				//英雄SID
+}
+
+//请求英雄天赋升级
+message CS_hero_dowerLevelUp
+{
+	int32 SID = 1;				//英雄SID
+	int32 NodeNo = 2;			//节点编号	
+}
+
+//收到英雄天赋升级
+message SC_hero_dowerLevelUp
+{
+	int32 SID = 1;				//英雄SID
+	int32 NodeNo = 2;			//节点编号	
+}

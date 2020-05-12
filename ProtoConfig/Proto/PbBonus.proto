@@ -1,0 +1,105 @@
+//福利相关
+syntax = "proto3";
+package PbBonus;
+
+//收到福利信息
+message SC_bonus_info
+{
+	repeated int32 SevenIds = 1;	//已领取7天奖励Id
+	int32 SingInNum = 2;			//每日签到剩余次数
+	int32 OnlineAwardId = 3;		//当前已领取的在线奖励档位Id
+	int32 OnlineAwardTime = 4;		//在线奖励可领取时间戳1(领取下个档次时间 0全部已领)
+	repeated int32 LevelIds = 5;		//已领取等级奖励Id
+}
+
+//请求每日签到摇奖
+message CS_singIn_Spin
+{
+}
+
+//收到每日签到摇奖结果
+message SC_singIn_Spin
+{
+	int32 ID = 1;		//获得奖励ID
+	int32 LeftNum = 2;	//剩余次数
+}
+
+//请求领取在线奖励
+message CS_onlineAward_get
+{
+}
+
+//收到领取在线奖励
+message SC_onlineAward_get
+{
+	int32 OnlineAwardId = 1;		//当前已领取的在线奖励档位Id
+	int32 OnlineAwardTime = 2;		//在线奖励可领取时间戳
+}
+
+//请求购买开服基金
+message CS_openFund_buy
+{
+}
+
+//收到购买开服基金
+message SC_openFund_buy
+{
+}
+
+//请求领取开服基金
+message CS_openFund_get
+{
+	int32 ID = 1;		//等级档次ID
+}
+
+//收到领取开服基金
+message SC_openFund_get
+{
+	int32 ID = 1;		//等级档次ID
+}
+//请求兑换CDKey
+message CS_cdkey_get
+{
+	string Cdkey= 1;
+}
+//收到兑换CDKey结果
+message SC_cdkey_get
+{
+	Enum_cdkey_result Result = 1;
+}
+
+//请求领取7天奖励
+message CS_sevenAward_get
+{
+	int32 ID = 1;		//奖励ID
+}
+
+//收到领取7天奖励
+message SC_sevenAward_get
+{
+	int32 ID = 1;		//奖励ID
+}
+
+//请求领取等级奖励
+message CS_levelAward_get
+{
+	int32 ID = 1;		//奖励(等级)ID
+}
+
+//收到领取等级奖励
+message SC_levelAward_get
+{
+	int32 ID = 1;		//奖励(等级)ID
+}
+
+//公用装备返回结果
+enum Enum_cdkey_result
+{
+	CrSucceed = 0;		//成功
+	CrUnknown = 1;		//未知错误
+	CrInvalid = 2;		//礼品码无效
+	CrPastDue = 3;		//礼品码已过期
+	CrUsed = 4;		//此礼品码已经被使用
+	CrTypeUsed = 5;		//你已使用过此类礼品码
+	CrTypeMaxUsed = 6;	//使用此类礼品码已达上限(同类CDKey使用次数>1的提示)
+}

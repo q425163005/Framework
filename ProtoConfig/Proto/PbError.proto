@@ -1,0 +1,9 @@
+syntax = "proto3";
+package PbError;
+
+//公用错误提示
+message SC_error_code
+{
+	int32 Protocol = 1;	//协议号
+	string Msg = 2;		//错误消息(只用于方便调试,客户端不要用此信息直接输出错误提示)
+}

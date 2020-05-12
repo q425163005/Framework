@@ -1,0 +1,86 @@
+//英勇之路相关
+syntax = "proto3";
+package PbTaskHeroic;
+
+//请求英勇任务信息
+message CS_taskHeroic_info
+{
+
+}
+//收到英勇任务信息
+message SC_taskHeroic_info
+{
+	bool IsOpen = 1;								//是否开放
+	int32 Time = 2;									//开放时为结束时间，未开放为下次开放时间
+	repeated One_taskHeroic_item TaskDailyList = 3;	//每日任务（开放时才有）
+	repeated One_taskHeroic_item TaskHeroicList= 4; //英勇任务（开放时才有）
+	int32 HeroicScore = 5;							//英勇点数
+	int32 AwardLevel = 6;							//奖励等级
+	repeated int32 FreeIds = 7;						//已领取的免费奖励ids
+	repeated int32 CardIds = 8;						//已领取的英勇卡奖励ids
+	bool IsBuy = 9;									//是否购买英勇卡
+	int32 Expired = 10;				//已过期的每日任务已完成未领取的点数（大于0打开界面时弹出领取框）
+}
+
+//一个任务数据
+message One_taskHeroic_item
+{
+	int32 TaskId = 1;			//任务Id
+	int32 Progress = 2;			//完成进度
+	bool IsGet = 3;				//奖励是否已领取
+}
+
+//请求领取任务奖励
+message CS_taskHeroic_get
+{
+	int32 TaskId = 1;			//任务Id
+}
+//收到领取任务奖励
+message SC_taskHeroic_get
+{
+	int32 TaskId = 1;			//成功领取的奖励任务ID
+	int32 Progress = 2;			//完成进度（每日）
+	bool IsGet = 3;				//奖励是否已领取（每日）
+	int32 NextId = 4;			//下级任务ID（英勇任务）【没有为0 不为0时客户端处理当前任务：替换id、进度置0】
+	int32 HeroicPoint = 5;		//英勇点数
+	int32 AwardLevel = 6;		//奖励等级
+}
+
+//请求领取英勇奖励
+message CS_taskHeroic_award
+{
+	int32 AwardId = 1;			//奖励Id
+}
+//收到领取英勇奖励
+message SC_taskHeroic_award
+{
+	int32 AwardId = 1;			//奖励Id
+	//客户端自行维护已领取的id（FreeIds、CardIds）
+	//如果开启了英勇卡，这里一次领奖得2种奖励
+}
+
+
+//请求领取已过期的任务奖励
+message CS_taskHeroic_expired
+{
+	
+}
+//收到领取已过期的任务奖励
+message SC_taskHeroic_expired
+{
+	int32 HeroicPoint = 1;		//英勇点数
+	int32 AwardLevel = 2;		//奖励等级
+}
+
+//收到单个英勇任务进度发生改变
+message SC_taskHeroic_change
+{
+	int32 TaskId = 1;		//任务Id
+	int32 Progress = 2;		//完成进度
+}
+
+//收到英勇任务有更新的通知
+message SC_taskHeroic_update
+{
+	
+}

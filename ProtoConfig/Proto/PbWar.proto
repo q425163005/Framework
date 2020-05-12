@@ -1,0 +1,164 @@
+//战斗信息
+syntax = "proto3";
+package PbWar;
+
+
+//请求副本挑战
+message CS_war_fb
+{
+	int32 LevelStageId = 1;
+	int32 TeamId = 2; //使用的队伍Id
+}
+
+//收到副本挑战
+message SC_war_fb
+{
+	int32 ActionPoint = 1;  		//副本行动点数
+}
+//请求副本战斗重生
+message CS_war_fbRebirth
+{	
+}
+//收到副本战斗重生
+message SC_war_fbRebirth
+{
+	int32 RebirthNum = 1; //当前重生次数  (客户端HP加满,当前回合置0)
+}
+//请求退出
+message CS_war_exit
+{
+	int32 KillNum = 1;	//杀敌数
+	repeated int32 ItemIds = 2;		//使用道具
+	repeated int32 ItemNums = 3;
+	repeated int32 KillTemplIds = 4;	//怪物模板Id
+	repeated int32 KillTemplNums = 5;//怪物数量
+	int32 Damage = 10;
+	repeated int32 ClubWarEnemyHPs = 11; //联盟战敌人剩余血量[0-4]对应英雄位置血量
+}
+//请求副本扫荡
+message CS_war_fbQuick
+{
+	int32 LevelStageId = 1;			//关卡Id
+	int32 Num = 2;					//扫荡次数
+}
+
+//收到战斗信息
+message SC_war_info
+{
+	int32 WarType = 1;				//战斗类型 EWarType
+	int32 WarMapId = 2;				//战斗地图ID  FB为FBLevelStage Id		
+	repeated One_war_entity EnemyList = 3;//当前敌人数据(竞技场发送)
+	int32 TeamId = 4;				//出战队伍ID
+	repeated One_DropItem Boxs = 5;//箱子掉落
+	repeated int32 HeroIds = 6;			//出战的英雄Ids
+	repeated int32 EquipIds = 7;		//使用的装备Ids
+}
+
+//一个战斗对象数据
+message One_war_entity
+{	
+	int32 Place = 1;					//位置  (0-4)英雄 (10-24)敌人
+	int32 EntityType = 2;				//玩家对象类型 EWarEntityType  0英雄 1怪
+	int32 TemplId = 3;				//模板Id   英雄/怪物
+	int32 Level = 4;					//等级
+	int32 BreakLv = 5;				//突破等级	
+	repeated int32 SkillsLv = 6;			//技能等级		
+	int32 HP = 7;					//当前生命
+	int32 MaxHP = 8;				//生命上限
+	int32 MP = 9;					//当前能量
+	int32 MaxMP = 10;				//最大能量上限
+	int32 Antibody = 11;				//同类元素攻击抗性
+	int32 Attack = 12;				//攻击
+	int32 Defend = 13;				//防御
+	int32 Miss = 14;					//闪避
+	int32 Crit = 15;					//爆击
+	int32 AttackInterval = 16;			//当前攻击间隔
+	int32 AttackIntervalMax = 17;		//最大攻击间隔
+	repeated int32 Dowers = 18;			//天赋加点
+}
+
+
+//敌方攻击
+message One_war_enemyAttack
+{
+	int32 Cast = 1;						//施法者
+	int32 SkillId = 2;						//技能Id  普通攻击0	
+	repeated One_war_damage Damages = 3;	//攻击目标伤害 (普通攻击只有一个条数据)
+}
+message One_war_damage
+{
+	int32 Target = 1;				//目标位置 (0-4) (10-24)敌人
+	int32 DamageType = 2;		//0普通伤害 1闪避 2爆击	3恢复生命 4恢复能量 5无伤害(只加BUFF) 6免疫 7无敌  EDamageType
+	int32 Value = 3;				//伤害值	
+	int32 TargetAddMP = 4;		//目标获得能量(普通攻击有)
+	int32 CastAddMP = 5;			//攻击方获得能量(普通攻击有)
+	bool IsAvgDamage = 6;		//是否平分伤害(true 所有友方单位扣除同等血量)
+	int32 CastSuckHP = 7;			//攻击吸血(负数为返伤值)
+	int32 AttachDowerId = 8;		//附加天赋值	
+	int32 AttachDowerValue = 9;	//附加天赋值		
+	int32 TargetAttachDowerId = 10;	//目标附加天赋值	
+	int32 TargetAttachDowerValue = 11;	//目标附加天赋值	
+	
+}
+
+
+message CS_war_result
+{
+	bool IsWin = 1;				//是否胜利   //通关客户端自己维护关卡信息
+	int32 WarType = 2;			//战斗类型 EWarType
+	int32 WarMapId = 3;			//战斗地图ID  FB为FBLevelStage Id	
+	int32 KillNum = 4;			//杀敌数
+	repeated int32 ItemIds = 5;		//使用道具
+	repeated int32 ItemNums = 6;
+	int32 BoxNum = 7;			//箱子数
+	repeated int32 KillTemplIds = 8;	//怪物模板Id
+	repeated int32 KillTemplNums = 9;//怪物数量
+	int32 Damage = 10;			//总伤害
+	int32 ComboMax = 11;			//最高连击
+	repeated int32 ClubWarEnemyHPs = 12; //联盟战、联赛敌人剩余血量[0-4]对应英雄位置血量
+	repeated int32 HeroLastHPs = 13; //自己英雄剩余血量[0-4]
+}
+
+
+//收到战斗结果
+message SC_war_result
+{
+	bool IsWin = 1;				//是否胜利   //通关客户端自己维护关卡信息
+	repeated One_DropItem DropItems = 2;	//掉落信息 (失败只做显示用)
+	int32 KillsNum = 3;		//杀敌数 (副本用来显示箱子数)
+	int32 ArenaScore = 4;	//获得竞技场积分
+	One_Titan_Info TitanInfo = 5; //泰坦战斗信息,其它战斗没有
+	int32 ClubWarScore = 6; //获得的联盟战积分
+	repeated int32 LeagueScore = 7;//获得的分数(英雄击杀得分、难度得分)
+	repeated int32 EventFBScore = 8;//挑战活动分数(敌人战败分、稀有敌人分、时间奖励分、比赛奖励分、生命加成分、继续惩罚分)
+}
+//泰坦战斗结果
+message One_Titan_Info
+{
+	int32 TitanId = 1;
+	int32 HP = 2;	//剩余血量	
+	int32 LeftTime = 3; //剩余时间
+	int32 Damage = 4; //伤害
+}
+
+//数据异常
+message SC_war_error
+{
+	int32 errorCode = 1;
+}
+
+
+//一个掉落物品
+message One_DropItem
+{
+	int32 ItemId = 1;	//物品模板id(负数表示英雄)
+	int32 Count = 2;		//数量
+}
+
+//一个特殊格子信息
+message One_SpecialGrid
+{	
+	int32 Index = 1;		//格子位置
+	int32 Num = 2;		//层叠数量
+	int32 Symbol = 3;	//符号类型(锁连没有类型) (更新时不发送)
+}

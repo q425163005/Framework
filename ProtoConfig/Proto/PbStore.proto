@@ -1,0 +1,118 @@
+//商城相关
+syntax = "proto3";
+package PbStore;
+
+//请求商城购买记录
+message SC_store_infos
+{
+	repeated One_store_info List = 1;	//已购买Id(有次数限制会发)
+}
+
+//一个商品次数信息
+message One_store_info
+{
+	int32 Id = 1;		//礼包Id
+	int32 Num = 2;		//已购买数量
+}
+
+//请求购买商城物品
+message CS_store_buyItem
+{
+	int32 Id = 1;		//购买的商品Id
+	int32 Num = 2;		//购买数量
+}
+//收到购买商城物品
+message SC_store_buyItem
+{
+	int32 Id = 1;		//购买的商品Id
+	int32 Num = 2;		//购买数量
+}
+
+
+//请求召唤
+message CS_summon_buy
+{
+	Enum_summon_type SummonType = 1;	//召唤类型
+	int32 Type = 2;						//1单次 2十连抽
+}
+
+//收到召唤
+message SC_summon_buy
+{
+	Enum_summon_result Result = 1;		//召唤结果
+	Enum_summon_type SummonType = 2;	//召唤类型
+	int32 Type = 3;						//1单次 2十连抽
+	int32 FreeNextTime = 4;				//下次免费时间戳
+	repeated int32 EquipIds = 5;		//获得的装备模板Id
+	repeated int32 HeroIds = 6;			//获得的英雄模板Id
+}
+
+//召唤类型
+enum Enum_summon_type
+{
+	StElement = 0;		//元素召唤
+	StEPICHero = 1;		//传奇英雄召唤
+	StEPICEquip = 2;	//传奇装备召唤
+	StDaliy = 3;		//每日召唤
+}
+
+//召唤结果
+enum Enum_summon_result
+{
+	SrSucceed = 0;		//成功
+	SrUnknown = 1;		//未知错误
+	SrNotMoney = 2;		//所需钻石不足
+	SrNotItem = 3;		//所需道具不足
+}
+
+//收到头像商店数据
+message SC_store_icons
+{
+	int32 SiftId = 1;					//精选头像商品Id
+	int32 SiftNextTime = 2;				//精选头像下次刷新时间
+	repeated int32 DailyIds = 3;		//每日头像商品Id（2个头像、1个背景、1个角标）
+}
+
+//请求购买商城头像
+message CS_store_buyIcon
+{
+	int32 Id = 1;		//购买的商品Id
+}
+//收到购买商城头像
+message SC_store_buyIcon
+{
+	int32 Id = 1;		//购买的商品Id
+}
+
+
+
+//请求资源商店数据
+message CS_store_res
+{
+
+}
+//收到资源商店数据
+message SC_store_res
+{
+	repeated int32 ShieldIds = 1;		//已购买的护盾Id
+	int32 ShieldCD = 2;					//护盾冷却完成时间（客户端时间到了重新请求）
+}
+
+//请求购买商城资源
+message CS_store_buyRes
+{
+	int32 Id = 1;		//购买的商品Id
+}
+//收到购买商城资源
+message SC_store_buyRes
+{
+	int32 Id = 1;						//购买的商品Id
+	//以下字段对应功能类型
+	int32 ResNum = 2;					//增加的食物、矿石数量
+	int32 ActionPoint = 3;				//世界能量点（客户端自行置空 世界能量恢复时间戳）
+	int32 ArenaPoint = 4;				//竞技能量点（客户端自行置空 竞技能量恢复时间戳）
+	int32 BossPoint = 5;				//泰坦能量点（客户端自行置空 泰坦能量恢复时间戳）
+	int32 ExtraCard = 6;				//额外英雄卡槽
+	int32 ExtraTeam = 7;				//额外战队数量
+	int32 ShieldTime = 8;				//护盾有效到期时间戳（自行处理竞技场护盾有效时间，商品id加入已购买的护盾ids）
+}

@@ -1,0 +1,1 @@
+﻿[{"NameMaxLen":16,"ClearCDTicket":1}]

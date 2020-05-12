@@ -1,0 +1,124 @@
+//玩家背包数据
+syntax = "proto3";
+package PbBag;
+
+//收到背包列表
+message SC_bag_list
+{
+	repeated One_bag_prop PropList = 1;	//道具列有
+	repeated One_bag_equip EquipList = 2; //装备列表	
+}
+
+
+//获得多个物品,可能是虚拟物品,也可能是装备,道具(客户端要把同Id的道具数量相加)
+//虚拟物品需要把值加到原值上
+message SC_bag_newItems
+{
+	Enum_bag_itemsType ItemsType = 1;
+	repeated One_bag_item Items = 2;
+}
+
+//更新单个物品,道具或装备数量
+message SC_bag_updateItemCount
+{
+	int32 ItemSID = 1;		//装备短Id  道具为0
+	int32 TemplID =2;		//模板Id
+	int32 Num = 3;			//数量 (更新为更新后的数量 0客户端要移除物品)
+}
+
+
+//一个物品(装备，道具，虚拟物品)
+message One_bag_item
+{
+	int32 ItemSID = 1;		//装备短Id  道具为0
+	int32 TemplID =2;		//模板Id
+	int32 Num = 3;			//数量   装备Num为0 
+	int32 Level = 4;		//装备等级
+	int32 Exp = 5;			//装备经验
+}
+
+
+//一件装备
+message One_bag_equip
+{
+	int32 ItemSID = 1;		//装备短Id
+	int32 TemplID =2;		//模板Id
+	int32 Level = 3;		//装备等级
+	int32 Exp = 4;			//当前经验
+}
+//道具,材料或碎片
+message One_bag_prop
+{
+	int32 TemplID =1;	//模板Id
+	int32 Num = 2;		//数量
+}
+
+//请求使用物品
+message CS_bag_useItem
+{
+	int32 TemplID =1;		//物品模板Id
+	int32 Num = 2;			//使用数量
+}
+
+//请求出售道具
+message CS_bag_sellProp
+{
+	int32 TemplID =1;		//道具模板Id
+	int32 Num = 2;			//出售数量
+}
+
+//请求出售装备
+message CS_bag_sellEquip
+{
+	int32 SID =1;			//装备为SID
+}
+//收到出售装备
+message SC_bag_sellEquip
+{
+	int32 SID =1;			//装备为SID
+}
+
+//请求更换马主装备
+message CS_bag_changeEquip
+{
+	int32 EquipSID = 1;				//装备SID 穿戴或卸下的装备Id
+	bool IsUse = 2;					//true穿戴装备  /false 卸下装备
+}
+
+//收到更换马主装备
+message SC_bag_changeEquip
+{
+	int32 EquipSID = 1;				//装备SID 穿戴或卸下的装备Id (原位置的装备自行处理)
+	bool IsUse = 2;					//true穿戴装备  /false 卸下装备
+}
+
+//收到使用平安符
+message SC_bag_Amulet
+{
+	int32 AmuletTime = 1;			//平安符到期时间
+}
+
+
+//获得新物品类型
+enum Enum_bag_itemsType
+{
+	BiNone = 0;					//无类型
+	BiForgeOutput = 1;			//工坊制作
+	BiSmithyOutput = 2;			//铁匠铺制作
+	BiFBDrop = 3;				//副本掉落
+	BiSummon = 4;				//召唤
+	BiStore = 5;				//商城购买
+	BiEventFBAward = 6;			//活动副本过关奖励
+	BiTask = 7;					//任务奖励
+	BiTaskBounty = 8;			//赏金任务奖励
+	BiFillRes = 9;				//补齐资源
+	BiTitanAward = 10;			//泰坦奖励
+	BiLevelAward = 11;			//等级奖励
+	BiFirstAward = 12;			//首充奖励
+	BiClubWarAward = 13;		//联盟战奖励
+	BiLeagueAward = 14;			//联赛奖励
+	BiHeroicRoad = 15;			//英勇之路奖励
+	BiEventFBPassAward = 16;	//活动副本通关奖励
+	BiEventFBRankAward = 17;	//活动副本排名奖励
+	BiStoreIcon = 18;			//头像商店购买
+}

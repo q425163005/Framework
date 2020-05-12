@@ -1,0 +1,26 @@
+//系统模块
+syntax = "proto3";
+package PbSystem;
+
+//请求心跳包 30秒一次
+message CS_sys_heartbeat
+{
+}
+//收到心跳包
+message SC_sys_heartbeat
+{
+	int32 ServerTime = 1;	//服务器当前时间截，秒
+}
+
+//人物断线消息
+message SC_sys_offline
+{
+	Enum_offline_type type = 1;	//断线类型
+}
+//断线类型
+enum Enum_offline_type
+{
+	OtUnknown = 0;		//未知错误
+	OtOtherLogin = 1;	//账号在别处登录
+	OtAccountLock = 2;	//账号被锁
+}

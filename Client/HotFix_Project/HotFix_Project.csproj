@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{134D92F0-B7B4-49CA-93DF-24226B71FCC2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HotFix_Project</RootNamespace>
+    <AssemblyName>HotFix_Project</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Product\ILR\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MK\Library\ScriptAssemblies\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Coffee.UIParticle, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MK\Library\ScriptAssemblies\Coffee.UIParticle.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>obj\Debug\UnityDll\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity, Version=7.18.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\ILR\Facebook.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="spine-unity">
+      <HintPath>..\SlotsHero\Library\ScriptAssemblies\spine-unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Stores, Version=1.0.7016.24194, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\ILR\Stores.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\ILR\UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\ILR\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>obj\Debug\UnityDll\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\LoopScrollHelper_Grid.cs" />
+    <Compile Include="Manager\Config\BuildPolygonSetting.cs" />
+    <Compile Include="Manager\Config\FBMaplPosSetting.cs" />
+    <Compile Include="Manager\Config\MapConfig.cs" />
+    <Compile Include="Module\Common\Check.cs" />
+    <Compile Include="Module\Common\Define\EPlayerEditor.cs" />
+    <Compile Include="Module\Common\Define\EHeroEditor.cs" />
+    <Compile Include="Module\Common\PlayerInfoMgr.cs" />
+    <Compile Include="Module\Login\Define\ELoginType.cs" />
+    <Compile Include="Helper\LoadHelper.cs" />
+    <Compile Include="Helper\LoopScrollHelper.cs" />
+    <Compile Include="Helper\Random\AdvertEntity.cs" />
+    <Compile Include="Helper\Random\RandomHelper.cs" />
+    <Compile Include="Helper\Random\RandomObject.cs" />
+    <Compile Include="Helper\ScrollTeam.cs" />
+    <Compile Include="Helper\TimeHelper.cs" />
+    <Compile Include="Library\AnimatorWidget\AnimWidget.cs" />
+    <Compile Include="Library\AnimatorWidget\Define\AnimParam.cs" />
+    <Compile Include="Library\CLog.cs" />
+    <Compile Include="Library\Dumper.cs" />
+    <Compile Include="Library\Extension.cs" />
+    <Compile Include="Library\VirtualServer.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Manager\Config\BaseConfig.cs" />
+    <Compile Include="Manager\Config\HeroModelSetting.cs" />
+    <Compile Include="Manager\Config\ConfigMgr.cs" />
+    <Compile Include="Manager\Config\ConfigMgrCustom.cs" />
+    <Compile Include="Manager\Config\ConfigRead.cs" />
+    <Compile Include="Manager\Config\Configs\EffectConfig.cs" />
+    <Compile Include="Manager\Config\Configs\FunOpenConfig.cs" />
+    <Compile Include="Manager\Config\Configs\GuideConfig.cs" />
+    <Compile Include="Manager\Config\Configs\GuideLevelConfig.cs" />
+    <Compile Include="Manager\Config\Configs\GuideStepConfig.cs" />
+    <Compile Include="Manager\Config\Configs\ItemConfig.cs" />
+    <Compile Include="Manager\Config\Configs\LanguageConfig.cs" />
+    <Compile Include="Manager\Config\Configs\SettingConfig.cs" />
+    <Compile Include="Manager\Config\Configs\TaskConfig.cs" />
+    <Compile Include="Manager\Config\Interface\ITaskConfig.cs" />
+    <Compile Include="Manager\Config\Interface\IWarEntityConf.cs" />
+    <Compile Include="Manager\Config\Interface\IWarSceneConf.cs" />
+    <Compile Include="Manager\Data\BaseDataMgr.cs" />
+    <Compile Include="Manager\ILR\ILRMainCall.cs" />
+    <Compile Include="Manager\Lang\Lang.cs" />
+    <Compile Include="Manager\Lang\LangMgr.cs" />
+    <Compile Include="Manager\Lang\LangType.cs" />
+    <Compile Include="Manager\Mgr.cs" />
+    <Compile Include="Manager\Sound\Define\AudioEnum.cs" />
+    <Compile Include="Manager\Sound\SoundMgr.cs" />
+    <Compile Include="Manager\UIEffect\DataMgr\Data\UIButtonEffect.cs" />
+    <Compile Include="Manager\UIEffect\DataMgr\Data\UIItemEffectBase.cs" />
+    <Compile Include="Manager\UIEffect\DataMgr\UIItemEffectMgr.cs" />
+    <Compile Include="Manager\UIEffect\Define\UIItemEffectEnum.cs" />
+    <Compile Include="Manager\UIEffect\UIItemEffectUtils.cs" />
+    <Compile Include="Manager\UI\BaseItem.cs" />
+    <Compile Include="Manager\UI\BaseUI.cs" />
+    <Compile Include="Manager\UI\Define\UIAtlas.cs" />
+    <Compile Include="Manager\UI\Define\UIEnum.cs" />
+    <Compile Include="Manager\UI\UIExtension.cs" />
+    <Compile Include="Manager\UI\UIMgr.cs" />
+    <Compile Include="Manager\UI\UIObject.cs" />
+    <Compile Include="Manager\UI\UIUtils.cs" />
+    <Compile Include="Module\Common\Define\EColorType.cs" />
+    <Compile Include="Module\Common\Define\EShowResultType.cs" />
+    <Compile Include="Module\Common\Define\ESortType.cs" />
+    <Compile Include="Module\Common\Define\EShowGetType.cs" />
+    <Compile Include="Module\Common\UI\Confirm.cs" />
+    <Compile Include="Module\Common\UI\ItemTipUI.cs" />
+    <Compile Include="Module\Common\UI\Loading.cs" />
+    <Compile Include="Module\Common\UI\Tips.cs" />
+    <Compile Include="Module\Common\UI\View\ConfirmView.cs" />
+    <Compile Include="Module\Common\UI\View\ItemTipUIView.cs" />
+    <Compile Include="Module\Common\UI\View\LoadingView.cs" />
+    <Compile Include="Module\Common\UI\View\TipsView.cs" />
+    <Compile Include="Module\Common\Utils.cs" />
+    <Compile Include="Module\Login\DataMgr\Data\ServerItemData.cs" />
+    <Compile Include="Module\Login\DataMgr\LoginMgr.cs" />
+    <Compile Include="Module\Login\DataMgr\ServerListMgr.cs" />
+    <Compile Include="Module\Login\UI\Item\SelServerItem.cs" />
+    <Compile Include="Module\Login\UI\Item\View\SelServerItemView.cs" />
+    <Compile Include="Module\Login\UI\LoginUI.cs" />
+    <Compile Include="Module\Login\UI\SelServerUI.cs" />
+    <Compile Include="Module\Login\UI\View\LoginUIView.cs" />
+    <Compile Include="Module\Login\UI\View\SelServerUIView.cs" />
+    <Compile Include="Module\Common\Define\EAwardState.cs" />
+    <Compile Include="Module\Common\ConfirmMgr.cs" />
+    <Compile Include="Module\Common\SkeletonAnimation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Library\ModelWidget\" />
+    <Folder Include="Module\Common\Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

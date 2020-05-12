@@ -1,0 +1,280 @@
+//联盟战相关
+syntax = "proto3";
+import "PbHero.proto";
+import "PbBag.proto";
+import "PbCom.proto";
+package PbClubWar;
+
+//请求联盟战信息
+message CS_clubWar_info
+{
+	
+}
+//收到联盟战信息
+message SC_clubWar_info
+{
+	Enum_clubWar_state State = 1;			//联盟战争状态(注意:状态为0时没有小组数据)
+	int32 NextTime = 2;						//战争状态下次刷新时间
+	int32 GroupId = 3;						//联盟战争小组Id
+	repeated One_clubWar Info = 4;			//联盟战争小组简要数据
+	bool Inwar = 5;							//是否参加联盟战
+	int32 boxPro = 6;						//联盟战争宝箱进度(可领取时宝箱进度直接用最大值,不可领时显示此值)
+	bool canGet = 7;						//是否可领取宝箱
+	int32 boxRate = 8;						//宝箱参与度
+	bool IsJoin = 9;						//是否已加入本场战争
+	int32 Energy = 10;						//剩余能量点
+}
+//一个联盟战争小组简要信息
+message One_clubWar
+{
+	int32 ClubSID = 1;						//联盟SID
+	string ClubName = 2;					//联盟名
+	int32 Score = 3;						//联盟战已获得的积分
+	int32 Icon = 4;							//联盟图标
+	int32 IconBg = 5;						//联盟图标背景
+}
+
+//联盟战状态结构枚举
+enum Enum_clubWar_state
+{
+	CsOffDay = 0;	//休息日
+	CsReadyDay = 1;	//准备日
+	CsWarDay = 2;	//战争日
+	CsEndDay = 3;	//结束日
+}
+
+//请求联盟战小组信息
+message CS_clubWar_group
+{
+	int32 GroupId = 1;						//联盟战争小组Id
+}
+//收到联盟战小组信息(双方成员数据)
+message SC_clubWar_group
+{
+	int32 Energy = 1;						//剩余能量点
+	int32 EnergyTime = 2;					//能量恢复剩余时间(大于当前时间不显示)
+	repeated One_groupClub Group = 3;		//小组两方联盟数据(注:准备日只有已方成员)
+	repeated One_clubWarLog Logs = 4;		//战斗日志(前三条)
+	repeated int32 UseHeroIds = 5;			//已出战过的英雄Ids
+}
+
+//一个小组联盟
+message One_groupClub
+{
+	int32 ClubSID = 1;						//联盟SID
+	string ClubName = 2;					//联盟名
+	int32 Score = 3;						//联盟战已获得的积分
+	int32 Icon = 4;							//联盟图标
+	int32 IconBg = 5;						//联盟图标背景
+	repeated One_warMember Members = 6;		//成员据点列表
+}
+//一个联盟成员据点信息
+message One_warMember
+{
+	int32 SID = 1;								//玩家SID
+	string Name = 2;							//玩家名
+	bool Online = 3;							//是否在线
+	Enum_clubWar_memberState State = 4;			//玩家状态
+	int32 RenewTime = 5;						//复活剩余时间(阵亡状态才有)
+	repeated PbHero.One_heroInfo Heros = 6;		//5个英雄信息
+	repeated One_HeroHp LastHp = 7;				//5个英雄剩余血量
+	repeated PbBag.One_bag_equip Equips = 8;	//5个装备信息 
+	int32 Energy = 9;							//剩余能量点
+	string EnemyName = 10;						//对手名(准备、战斗状态才有)
+}
+//一个联盟战日志
+message One_clubWarLog
+{
+	int32 AttackSID = 1;						//攻击方SID
+	string AttackName = 2;						//攻击方玩家名
+	int32 DefSID = 3;							//防守方SID
+	string DefName = 4;							//防守方玩家名
+	int32 Score = 5;							//获得的分数
+	int32 Time = 6;								//记录时间
+}
+//一个英雄剩余血量
+message One_HeroHp
+{
+	int32 SID = 1;								//英雄SID
+	int32 Hp = 2;								//剩余血量
+}
+
+//联盟战据点状态结构枚举
+enum Enum_clubWar_memberState
+{
+	CmNormal = 0;	//正常(空闲)
+	CmReady = 1;	//准备攻击
+	CmWar = 2;		//战斗中
+	CmDead = 3;		//阵亡
+}
+
+//请求联盟战玩家详细信息
+message CS_clubWar_player
+{
+	int32 GroupId = 1;							//联盟战争小组Id
+	int32 PID = 2;								//玩家SID
+}
+//收到联盟战玩家详细信息
+message SC_clubWar_player
+{
+	PbCom.One_PlayerInfo Player = 1;			//玩家详细信息
+	repeated One_HeroHp LastHp = 2;				//5个英雄剩余血量
+	int32 Score = 3;							//剩余积分
+	int32 WinScore = 4;							//胜利可获得的积分
+}
+
+//请求联盟战寻找对手
+message CS_clubWar_find
+{
+	int32 GroupId = 1;							//联盟战争小组Id
+}
+//收到联盟战寻找对手
+message SC_clubWar_find
+{
+	int32 State = 1;							//匹配状态 0失败1成功
+	One_warEnemyInfo Enemy = 2;					//对手信息
+}
+
+//一个敌人信息
+message One_warEnemyInfo
+{
+	int32 SID = 1;								//玩家SID
+	string Name = 2;							//玩家名
+	repeated PbHero.One_heroInfo Heros = 3;		//5个英雄信息
+	repeated One_HeroHp LastHp = 4;				//5个英雄剩余血量
+	repeated PbBag.One_bag_equip Equips = 5;	//5个装备信息
+	int32 Score = 6;							//剩余积分
+	int32 WinScore = 7;							//胜利可获得的积分
+}
+
+//请求联盟战选择对手进入准备状态
+message CS_clubWar_ready
+{
+	int32 GroupId = 1;							//联盟战争小组Id
+	int32 SID = 2;								//对手SID
+}
+//收到联盟战选择对手进入准备状态
+message SC_clubWar_ready
+{
+	Enum_clubWar_memberState State = 1;			//返回0显示准备界面,返回其他状态弹相应提示
+	One_warEnemyInfo Enemy = 2;					//对手信息
+}
+
+
+//请求联盟战取消准备
+message CS_clubWar_noready
+{
+	int32 GroupId = 1;							//联盟战争小组Id
+	int32 SID = 2;								//对手SID
+}
+//收到联盟战取消准备
+message SC_clubWar_noready
+{
+	Enum_clubWar_memberState State = 1;			//返回0
+}
+
+
+//请求联盟战挑战对手
+message CS_clubWar_fight
+{
+	int32 GroupId = 1;							//联盟战争小组Id
+	int32 SID = 2;								//对手SID
+	repeated int32 HeroIds = 3;					//出战的英雄Ids
+	repeated int32 EquipIds = 4;				//使用的装备Ids
+}
+//收到联盟战挑战对手
+message SC_clubWar_fight
+{
+	Enum_clubWar_memberState State = 1;			//返回0不用处理等待进战斗的消息,返回其他状态弹相应提示
+}
+
+//请求联盟战日志
+message CS_clubWar_logs
+{
+	int32 GroupId = 1;							//联盟战争小组Id
+}
+//收到联盟战日志
+message SC_clubWar_logs
+{
+	repeated One_clubWarLog Logs = 1;			//战斗日志
+	repeated One_clubWarRank Ranks = 2;			//个人排名
+}
+
+//一个联盟战排行
+message One_clubWarRank
+{
+	int32 ClubSID = 1;							//所属联盟SID
+	string Name = 2;							//玩家名
+	repeated int32 Icon = 3;					//玩家头像[头像、背景、角标]
+	int32 Score = 4;							//总分
+	int32 ArenaNum = 5;							//竞技积分
+	int32 Level = 6;							//玩家等级
+}
+
+//请求联盟战奖励
+message CS_clubWar_award
+{
+	
+}
+//收到联盟战奖励
+message SC_clubWar_award
+{
+	int32 WinResult = 1;						//战斗结果 0胜1负2平
+	repeated One_groupClub Clubs = 2;			//两方联盟(这里Members不用)
+	repeated One_clubWarRank Ranks = 3;			//两方最高分玩家
+	repeated PbCom.One_AwardItem Awards = 4;	//奖励列表
+}
+
+//请求加入联盟战(勾选取消参战)
+message CS_clubWar_join
+{
+	bool Inwar = 1;								//是否参战
+}
+//收到加入联盟战(勾选取消参战)
+message SC_clubWar_join
+{
+	bool Inwar = 1;								//是否参战
+}
+
+//请求修改防御队伍
+message CS_clubWar_editTeam
+{
+	repeated int32 TeamHero = 1;				//防御队伍英雄
+	repeated int32 TeamEquip = 2;				//防御队伍装备
+}
+//收到修改防御队伍
+message SC_clubWar_editTeam
+{
+	repeated int32 TeamHero = 1;				//防御队伍英雄
+	repeated int32 TeamEquip = 2;				//防御队伍装备
+}
+
+//请求防御队伍信息
+message CS_clubWar_teamInfo
+{
+	
+}
+//收到防御队伍信息
+message SC_clubWar_teamInfo
+{
+	repeated int32 TeamHero = 1;				//防御队伍英雄
+	repeated int32 TeamEquip = 2;				//防御队伍装备
+}
+
+//请求战争宝箱奖励
+message CS_clubWar_getBox
+{
+	
+}
+//收到战争宝箱奖励
+message SC_clubWar_getBox
+{
+	int32 boxRate = 1;							//宝箱参与度
+	repeated PbCom.One_AwardItem Awards = 2;	//奖励列表
+}
+
+//收到联盟战争状态更新
+message SC_clubWar_stateChange
+{
+	Enum_clubWar_state State = 1;				//联盟战争状态
+}

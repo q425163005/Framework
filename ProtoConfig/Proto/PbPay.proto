@@ -1,0 +1,150 @@
+//Vip,充值,月卡相关
+syntax = "proto3";
+package PbPay;
+
+//收到VIP信息月卡信息充值信息(登录发)
+message SC_vip_info
+{
+	//int32 VipLevel = 1;		//Vip等级
+	//int32 VipExp = 2;		//Vip经验
+	//repeated int32 VipGifts =3;	//已领VIP礼包ID
+	//bool OpenFundBuy = 4;	//是否购买了开服基金
+	//repeated int32 OpenFundIds = 5;	//已领的开服基金ID
+	
+	int32 MCDay = 6;		//剩余月卡天数
+	bool IsGetMC = 7;		//月卡今日是否已领取
+	int32 FirstPayState = 8;		//首充奖励状态 (EAwardState)
+	repeated One_gift_info GiftList = 9;	//已购买礼包Id(有次数限制会发)
+}
+
+//一个礼包信息
+message One_gift_info
+{
+	int32 Id = 1;		//礼包Id
+	int32 Num = 2;		//已购买数量
+}
+
+//VIP经验发生改变
+message SC_vip_exp
+{
+	int32 VipLevel = 1;	//Vip等级
+	int32 VipExp = 2;	//Vip经验
+}
+//VIP体验卡发生改变
+message SC_vipTry_change
+{
+	int32 VipTryLevel = 1;		//VIP体验等级
+	int32 VipTryEndTime = 2;	//VIP体验结束时间
+}
+
+//请求购买VIP礼包
+message CS_vip_buyGift
+{
+	int32 LevelID = 1;	//Vip等级档次ID
+}
+//收到购买VIP礼包结果
+message SC_vip_buyGift
+{
+	int32 LevelID = 1;	//Vip等级档次ID
+}
+
+//请求领取月卡奖励
+message CS_monthCard_get
+{
+}
+//收到领取月卡奖励结果
+message SC_monthCard_get
+{
+}
+
+//请求充值下定单
+message CS_pay_order
+{
+	int32 GoodsID = 1;		//商品ID
+	int32 PlatformType = 2;	//平台类型
+	string PlatParams = 3;		//平台参数
+}
+
+//收到充值定单信息
+message SC_pay_order
+{
+	Enum_payOrder_result Result = 1;	//结果
+	int32 GoodsID = 2;			//商品ID
+	int32 PlatformType = 3;		//平台类型
+	string Token = 4;			//验证签名 (sign)
+	string OrderId = 5;			//服务器定单号
+	string Ext = 6;				//透传参数
+}
+
+//请求支付成功(平台回调客户端成功需要发货时调用)
+message CS_pay_succeed
+{
+	int32 PlatformType = 1;		//平台类型
+	int32 GoodsID = 2;			//商品ID
+	string OrderId = 3;			//游戏定单号
+	string PfOrderId = 4;		//平台订单号(ios是前端返回的payload,gp是前端返回的purchaseData json字符串)
+}
+//收到支付成功
+message SC_pay_succeed
+{
+	Enum_pay_result result = 1; //支付结果
+	string OrderId = 2;			//游戏定单号
+	string ProductID = 3;		//平台商品Id
+}
+
+
+//收到充值结果
+message SC_pay_normal
+{
+	Enum_pay_result result = 1;
+	int32 ID = 2;				//充值档次ID
+	int32 FirstPayState = 3;		//首充奖励状态 (EAwardState)
+}
+
+
+//收到充值月卡结果
+message SC_pay_monthCard
+{
+	Enum_pay_result result = 1;
+	int32 ID = 2;				//充值档次ID 1： 月卡 2：年卡
+	int32 MCDay = 3;			//月卡天数
+	int32 FirstPayState = 4;		//首充奖励状态 (EAwardState)
+}
+
+//收到充值礼包结果
+message SC_pay_gift
+{
+	Enum_pay_result result = 1;
+	int32 ID = 2;				//充值礼包ID 
+	int32 FirstPayState = 3;		//首充奖励状态 (EAwardState)
+}
+
+
+//请求领取首充奖励
+message CS_pay_getFirstPay
+{
+}
+//收到领取首充奖励结果
+message SC_pay_getFirstPay
+{	
+}
+
+//充值结果
+enum Enum_pay_result
+{
+	PrSucceed = 0;		//成功
+	PrUnknown = 1;		//未知错误
+	PrTokenVerify = 2;	//Token验证失败
+	PrGoodsIdNoExist = 3;//商品不存在
+	PrOrderIsPay = 4;//订单已支付（重复请求）
+	PrOrderIdNoExist = 5;//订单号不存在
+}
+
+
+//充值下定单结果
+enum Enum_payOrder_result
+{
+	OrSucceed = 0;		//成功
+	OrNoOpen = 1;		//充值服务器未开启
+	OrSoldOut = 2;		//商品已下架
+}

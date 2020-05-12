@@ -1,0 +1,1449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <CscToolPath>E:\2019.2.17f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
+    <CscToolExe>unity_csc.bat</CscToolExe>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{5B9FF267-005F-A3BF-219E-FEAE2D8C894F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>.</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_2019_2_17;UNITY_2019_2;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MONO_BDWGC;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_WEBGL;UNITY_WEBGL;UNITY_WEBGL_API;UNITY_DISABLE_WEB_VERIFICATION;UNITY_GFX_USE_PLATFORM_VSYNC;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_VR;ENABLE_SPATIALTRACKING;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoConfig>true</NoConfig>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
+    <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>E:\2019.2.17f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>E:\2019.2.17f1\Editor\Data\Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\EditorTools\FBMaplEditor\FBMaplEditorScript.cs" />
+     <Compile Include="Assets\EditorTools\HeroModelEditor\HeroModelSetting.cs" />
+     <Compile Include="Assets\EditorTools\HeroModelEditor\WarHeroEditScript.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Define\EMapGridState.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Define\EMapType.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Extension\UIExtension.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\BaseConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\ConfigMgr.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\ConfigRead.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\EventFBConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\EventFBLevelConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\EventFBWarConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\FBChapterConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\FBLevelConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\FBLevelStageConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\GuideLevelConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\LanguageConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\MapColorConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\MonsterConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\TitanLevelConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Configs\WarSymbolConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\Interface\IWarSceneConf.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Config\MapConfig.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Lang\Lang.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Lang\LangMgr.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\Manager\Lang\LangType.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\MapEditor.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\Item\MapSelectItem.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\Item\MonsterItem.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\Item\MonsterListItem.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\Item\SymbolItem.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\Item\WaveItem.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\MapInitSettingUI.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\MapSelectUI.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\MapUI.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\MonsterGridUI.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\MonsterListUI.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\MonsterTipsUI.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\OperateUI.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\TipsUI.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\UIRoot.cs" />
+     <Compile Include="Assets\EditorTools\MapEditor\Script\UI\WaveEditUI.cs" />
+     <Compile Include="Assets\EditorTools\PolygonEditor\PolygonEditorScript.cs" />
+     <Compile Include="Assets\Script\App\AppSetting.cs" />
+     <Compile Include="Assets\Script\App\AtlasLoader.cs" />
+     <Compile Include="Assets\Script\App\EPlatformType.cs" />
+     <Compile Include="Assets\Script\App\Main.cs" />
+     <Compile Include="Assets\Script\App\Mgr.cs" />
+     <Compile Include="Assets\Script\Core\CLog.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\Source\Awaiters.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\Source\AwaitExtensions.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\Source\IEnumeratorAwaitExtensions.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\Source\Internal\AsyncCoroutineRunner.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\Source\Internal\SyncContextUtil.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\Source\TaskExtensions.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\Source\WaitForBackgroundThread.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\Source\WaitForUpdate.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\Tests\AsyncUtilTests.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\Tests\Util\TestButtonHandler.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\UniRx\Tests\UniRxTests.cs" />
+     <Compile Include="Assets\Script\Core\Extend\AsyncAwaitUtil\UniRx\UnirxAwaitExtensions.cs" />
+     <Compile Include="Assets\Script\Core\Manager\AssetbundleMgr\AssetBundleManager\AssetBundleLoadOperation.cs" />
+     <Compile Include="Assets\Script\Core\Manager\AssetbundleMgr\AssetBundleManager\AssetBundleManager.cs" />
+     <Compile Include="Assets\Script\Core\Manager\AssetbundleMgr\AssetBundleManager\Utility.cs" />
+     <Compile Include="Assets\Script\Core\Manager\AssetbundleMgr\AssetbundleMgr.cs" />
+     <Compile Include="Assets\Script\Core\Manager\BaseMgr.cs" />
+     <Compile Include="Assets\Script\Core\Manager\CTask\AsyncRoutines\CTask.cs" />
+     <Compile Include="Assets\Script\Core\Manager\CTask\AsyncRoutines\CTaskHandle.cs" />
+     <Compile Include="Assets\Script\Core\Manager\CTask\AsyncRoutines\Internal\Pool.cs" />
+     <Compile Include="Assets\Script\Core\Manager\CTask\AsyncRoutines\Internal\Resumer.cs" />
+     <Compile Include="Assets\Script\Core\Manager\CTask\AsyncRoutines\IResumer.cs" />
+     <Compile Include="Assets\Script\Core\Manager\CTask\AsyncRoutines\RoutineManager.cs" />
+     <Compile Include="Assets\Script\Core\Manager\CTask\AsyncRoutines\RoutineManagerBehavior.cs" />
+     <Compile Include="Assets\Script\Core\Manager\CTask\CTaskExtension.cs" />
+     <Compile Include="Assets\Script\Core\Manager\CTask\CTaskMgr.cs" />
+     <Compile Include="Assets\Script\Core\Manager\ILRMgr\IL\Adapt_IMessage.cs" />
+     <Compile Include="Assets\Script\Core\Manager\ILRMgr\IL\IAsyncStateMachineAdaptor.cs" />
+     <Compile Include="Assets\Script\Core\Manager\ILRMgr\IL\IDisposableAdaptor.cs" />
+     <Compile Include="Assets\Script\Core\Manager\ILRMgr\IL\ILAdapterAttribute.cs" />
+     <Compile Include="Assets\Script\Core\Manager\ILRMgr\IL\ILBindingAttribute.cs" />
+     <Compile Include="Assets\Script\Core\Manager\ILRMgr\ILRHelper.cs" />
+     <Compile Include="Assets\Script\Core\Manager\ILRMgr\ILRMgr.cs" />
+     <Compile Include="Assets\Script\Core\Manager\LayerManager\LayerManager.cs" />
+     <Compile Include="Assets\Script\Core\Manager\NetMgr\NetMgr.cs" />
+     <Compile Include="Assets\Script\Core\Manager\NetMgr\WebSocket.cs" />
+     <Compile Include="Assets\Script\Core\Manager\PoolMgr\GameObjectPool.cs" />
+     <Compile Include="Assets\Script\Core\Manager\PoolMgr\ObjectPool.cs" />
+     <Compile Include="Assets\Script\Core\Manager\PoolMgr\PoolMgr.cs" />
+     <Compile Include="Assets\Script\Core\Manager\UIMgr\UIAnim.cs" />
+     <Compile Include="Assets\Script\Core\Manager\UIMgr\UIMgr.cs" />
+     <Compile Include="Assets\Script\Core\Manager\VersionCheckMgr\Data\ABDownLoad.cs" />
+     <Compile Include="Assets\Script\Core\Manager\VersionCheckMgr\Data\ABResInfo.cs" />
+     <Compile Include="Assets\Script\Core\Manager\VersionCheckMgr\Data\VerLangConfig.cs" />
+     <Compile Include="Assets\Script\Core\Manager\VersionCheckMgr\Data\VersionInfo.cs" />
+     <Compile Include="Assets\Script\Core\Manager\VersionCheckMgr\VerCheckLang.cs" />
+     <Compile Include="Assets\Script\Core\Manager\VersionCheckMgr\VerResUpdate.cs" />
+     <Compile Include="Assets\Script\Core\Manager\VersionCheckMgr\VersionCheckMgr.cs" />
+     <Compile Include="Assets\Script\Core\Manager\VersionCheckMgr\VersionCheckUI.cs" />
+     <Compile Include="Assets\Script\Core\ModelExtend\ModelOutlet.cs" />
+     <Compile Include="Assets\Script\Core\Tools\ImageScroll.cs" />
+     <Compile Include="Assets\Script\Core\Tools\ReadOnlyAttribute.cs" />
+     <Compile Include="Assets\Script\Core\Tools\Scene\PrefabLightmapData.cs" />
+     <Compile Include="Assets\Script\Core\Tools\Scene\RendererLightMapSetting.cs" />
+     <Compile Include="Assets\Script\Core\Tools\Scene\SceneLightMapSetting.cs" />
+     <Compile Include="Assets\Script\Core\Tools\TextColor\TextVerticalGradientThreeColor.cs" />
+     <Compile Include="Assets\Script\Core\Tools\TextColor\TextVerticalGradientTwoColor.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\CanvasAdaptive.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\ContryClick.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\CustomScroll.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\Event\DragDirEventTrigger.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\Event\DragEventListener.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\Event\EventListener.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\Event\LongPressEventTrigger.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\Event\LongPressOrClickEventTrigger.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\ImageScrol.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\ImageSpriteIndex.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\LookAtCamera.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\MapScrollRect.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\ModelScrol.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\RichTextAlphaUpdater.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\SpriteAtlasList.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\SpriteAtlasSouce.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\UIAdaptive.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\UIEffectSort.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\UILangText.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\UIOutlet.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\UIPolygonImage.cs" />
+     <Compile Include="Assets\Script\Core\UIExtend\UISkin.cs" />
+     <Compile Include="Assets\Script\Core\Utils\ConfigUtils.cs" />
+     <Compile Include="Assets\Script\Core\Utils\ExtensionMethods.cs" />
+     <Compile Include="Assets\Script\Core\Utils\MD5Utils.cs" />
+     <Compile Include="Assets\Script\Core\Utils\PathGim.cs" />
+     <Compile Include="Assets\Script\Core\Utils\PeoplePoint.cs" />
+     <Compile Include="Assets\Script\Core\Utils\ResUtil.cs" />
+     <Compile Include="Assets\Script\Core\Utils\StringUtil.cs" />
+     <Compile Include="Assets\Script\Core\Utils\Utils.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\BaseMeshEffect.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\BlurMode.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\ColorMode.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\EffectArea.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\EffectPlayer.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\MaterialCache.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\MaterialResolver.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\Matrix2x3.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\Packer.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\ParameterTexture.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\ShadowStyle.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\ToneMode.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\Common\UIEffectBase.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\UIDissolve.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\UIEffect.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\UIEffectCapturedImage.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\UIFlip.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\UIGradient.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\UIHsvModifier.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\UIShadow.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\UIShiny.cs" />
+     <Compile Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Scripts\UITransitionEffect.cs" />
+     <Compile Include="Assets\The3rd\DOTween\Modules\DOTweenModuleAudio.cs" />
+     <Compile Include="Assets\The3rd\DOTween\Modules\DOTweenModulePhysics.cs" />
+     <Compile Include="Assets\The3rd\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+     <Compile Include="Assets\The3rd\DOTween\Modules\DOTweenModuleSprite.cs" />
+     <Compile Include="Assets\The3rd\DOTween\Modules\DOTweenModuleUI.cs" />
+     <Compile Include="Assets\The3rd\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+     <Compile Include="Assets\The3rd\DOTween\Modules\DOTweenModuleUtils.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\AdaptHelper.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\ByteArray.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\ByteString.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\CodedInputStream.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\CodedOutputStream.ComputeSize.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\CodedOutputStream.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\Collections\RepeatedField.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\Compatibility\PropertyInfoExtensions.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\Compatibility\StreamExtensions.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\FieldCodec.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\ICustomDiagnosticMessage.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\IMessage.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\InvalidProtocolBufferException.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\LimitedInputStream.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\MessageExtensions.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\MessageParser.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\ProtoPreconditions.cs" />
+     <Compile Include="Assets\The3rd\Google.Protobuf\WireFormat.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CanvasAdaptive_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CLRBindings.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_AppSetting_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_AssetbundleMgr_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_CLog_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_CTaskMgr_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Mgr_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_CTask_1_AudioClip_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_CTask_1_Boolean_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_CTask_1_GameObject_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_CTask_1_ILTypeInstance_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_CTask_1_Material_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_CTask_1_Object_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_CTask_1_SkeletonDataAsset_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_CTask_1_SpriteAtlas_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_CTask_1_Texture_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_CTask_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_CTaskHandle_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_RoutineBase_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_Tasks_RoutineManager_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_UIMgr_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\CSF_VersionCheckMgr_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\DG_Tweening_DOTween_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\DG_Tweening_DOTweenModuleUI_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\DG_Tweening_ShortcutExtensions_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\DG_Tweening_TweenSettingsExtensions_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\DragEventListener_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\EventListener_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\ExtensionMethods_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\IEnumeratorAwaitExtensions_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\IEnumeratorAwaitExtensions_Binding_SimpleCoroutineAwaiter_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\LayerManager_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\LitJson_JsonMapper_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\Spine_Animation_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\Spine_AnimationState_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\Spine_ExposedList_1_Animation_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\Spine_SkeletonData_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\Spine_TrackEntry_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\Spine_Unity_SkeletonDataAsset_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\Spine_Unity_SkeletonGraphic_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Action_1_ILTypeInstance_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Action_1_Int32_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Action_2_GameObject_Int32_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Action_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Activator_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Array_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_BitConverter_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Byte_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Char_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_GameObject_Int32__t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_Int32_Dictionary__t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_Int32_ILTypeInsta_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_Int32_Int32_Bindi_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_Int32_List_1_ILTy_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_Object_ILTypeInst_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_String_GameObject_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_String_GameObject_t_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_String_GameObject_t_t_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_String_ILTypeInst_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_String_ILTypeInst_t_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_String_ILTypeInst_t_t_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_String_ILTypeInst_t_t_t_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_String_ILTypeInst_t_t_t_t_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Dictionary_2_String_Transform__t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_List_1_GameObject_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_List_1_IDisposable_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_List_1_ILTypeInstance_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_List_1_ILTypeInstance_Binding__t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_List_1_Int32_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_List_1_Single_Array_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_List_1_String_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_List_1_Transform_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_List_1_UIOutlet_Binding_Outlet_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Queue_1_Action_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Queue_1_GameObject_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Queue_1_ILTypeInstance_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_Generic_Queue_1_String_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_ICollection_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_IEnumerator_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Collections_IList_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Convert_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_DateTime_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Exception_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_IDisposable_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Int32_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Int64_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Linq_Enumerable_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_NotImplementedException_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Object_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Random_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Reflection_MemberInfo_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Reflection_MethodBase_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Reflection_PropertyInfo_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Security_Cryptography_RandomNumberGenerator_Bindin_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Security_Cryptography_RNGCryptoServiceProvider_Bin_t.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_String_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Text_ASCIIEncoding_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Text_Encoding_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Text_RegularExpressions_Group_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Text_RegularExpressions_Regex_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Text_StringBuilder_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Text_UTF8Encoding_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_TimeSpan_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_TimeZone_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\System_Type_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UIOutlet_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UIOutlet_Binding_OutletInfo_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Animator_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Application_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_AudioSource_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Behaviour_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Canvas_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Color_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_ColorUtility_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Component_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Debug_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Events_UnityAction_2_Boolean_Toggle_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Events_UnityEvent_1_Boolean_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Events_UnityEvent_1_Int32_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Events_UnityEvent_1_Single_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Events_UnityEvent_1_String_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Events_UnityEvent_1_Vector2_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Events_UnityEvent_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Events_UnityEventBase_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_GameObject_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Input_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Material_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Mathf_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Networking_DownloadHandler_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Networking_UnityWebRequest_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Object_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_PlayerPrefs_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_QualitySettings_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Rect_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_RectOffset_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_RectTransform_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Resources_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_SceneManagement_Scene_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_SceneManagement_SceneManager_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Screen_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_SortingLayer_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Time_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Transform_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_U2D_SpriteAtlas_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_Button_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_ColorBlock_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_Dropdown_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_Graphic_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_GridLayoutGroup_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_HorizontalOrVerticalLayoutGroup_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_Image_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_InputField_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_LayoutGroup_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_RawImage_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_ScrollRect_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_Selectable_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_Slider_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_Text_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_UI_Toggle_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Vector2_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Vector2Int_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\Generated\UnityEngine_Vector3_Binding.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\ValueTypeBinder\QuaternionBinder.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\ValueTypeBinder\Vector2Binder.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Adapters\ValueTypeBinder\Vector3Binder.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\CLR\Method\CLRMethod.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\CLR\Method\ExceptionHandler.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\CLR\Method\ILMethod.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\CLR\Method\IMethod.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\CLR\TypeSystem\CLRType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\CLR\TypeSystem\ILGenericParameterType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\CLR\TypeSystem\ILType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\CLR\TypeSystem\IType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\CLR\Utils\Extensions.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Other\ByReferenceKeyComparer.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Other\DelegateExportAttribute.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Other\NeedAdaptorAttribute.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Other\ThreadSafeDictionary.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Other\UncheckedList.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Reflection\Extensions.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Reflection\ILRuntimeConstructorInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Reflection\ILRuntimeFieldInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Reflection\ILRuntimeMethodInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Reflection\ILRuntimeParameterInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Reflection\ILRuntimePropertyInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Reflection\ILRuntimeType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Reflection\ILRuntimeWrapperType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Adaptors\CLRCrossBindingAdaptors.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\CLRBinding\BindingCodeGenerator.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\CLRBinding\BindingGeneratorExtensions.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\CLRBinding\CommonBindingGenerator.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\CLRBinding\ConstructorBindingGenerator.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\CLRBinding\FieldBindingGenerator.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\CLRBinding\MethodBindingGenerator.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\CLRBinding\ValueTypeBindingGenerator.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\BreakPointContext.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\BreakpointInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\DebuggerServer\DebuggerServer.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\DebugMessageType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\DebugService.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\DebugSocket.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\CSBindBreakpoint.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\CSDeleteBreakpoint.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\CSEnumChildren.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\CSExecute.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\CSResolveIndexer.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\CSResolveVariable.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\CSStep.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\SCAttachResult.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\SCBindBreakpointResult.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\SCBreakpointHit.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\SCEnumChildrenResult.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\SCModuleLoaded.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\SCResolveVariableResult.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\SCStepComplete.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\Protocol\SCThreadStarted.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\StackFrameInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\StepTypes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Debugger\VariableInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Enviorment\AppDomain.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Enviorment\CLRRedirections.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Enviorment\CrossBindingAdaptor.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Enviorment\DelegateManager.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Enviorment\InvocationContext.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Enviorment\ValueTypeBinder.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Extensions.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Intepreter\DelegateAdapter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Intepreter\ILIntepreter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Intepreter\ILRuntimeException.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Intepreter\ILTypeInstance.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Intepreter\OpCodes\OpCode.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Intepreter\OpCodes\OpCodeEnum.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Stack\RuntimeStack.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Stack\StackFrame.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\ILRuntime\Runtime\Stack\StackObject.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\LitJson\IJsonWrapper.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\LitJson\JsonData.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\LitJson\JsonException.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\LitJson\JsonMapper.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\LitJson\JsonMockWrapper.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\LitJson\JsonReader.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\LitJson\JsonWriter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\LitJson\Lexer.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\LitJson\ParserToken.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\Code.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\CodeReader.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\CodeWriter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\Document.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\ExceptionHandler.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\ILProcessor.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\Instruction.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\MethodBody.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\OpCode.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\OpCodes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\PortablePdb.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\SequencePoint.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\Symbols.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\VariableDefinition.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Cil\VariableReference.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\BlobHeap.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\Buffers.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\CodedIndex.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\ElementType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\GuidHeap.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\Heap.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\MetadataToken.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\PdbHeap.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\Row.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\StringHeap.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\TableHeap.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\TokenType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\UserStringHeap.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.Metadata\Utilities.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.PE\BinaryStreamReader.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.PE\BinaryStreamWriter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.PE\ByteBuffer.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.PE\ByteBufferEqualityComparer.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.PE\DataDirectory.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.PE\Image.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.PE\ImageReader.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.PE\ImageWriter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.PE\Section.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil.PE\TextMap.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ArrayType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\AssemblyDefinition.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\AssemblyFlags.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\AssemblyHashAlgorithm.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\AssemblyLinkedResource.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\AssemblyNameDefinition.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\AssemblyNameReference.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\AssemblyReader.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\AssemblyWriter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\BaseAssemblyResolver.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\CallSite.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\Consts.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\CustomAttribute.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\DefaultAssemblyResolver.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\EmbeddedResource.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\EventAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\EventDefinition.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\EventReference.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ExportedType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\FieldAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\FieldDefinition.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\FieldReference.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\FileAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\FunctionPointerType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\GenericInstanceMethod.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\GenericInstanceType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\GenericParameter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\GenericParameterAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\IConstantProvider.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ICustomAttributeProvider.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\IGenericInstance.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\IGenericParameterProvider.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\IMarshalInfoProvider.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\IMemberDefinition.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\IMetadataScope.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\IMetadataTokenProvider.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\IMethodSignature.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\Import.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\LinkedResource.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ManifestResourceAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MarshalInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MemberDefinitionCollection.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MemberReference.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MetadataResolver.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MetadataSystem.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MethodAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MethodCallingConvention.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MethodDefinition.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MethodImplAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MethodReference.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MethodReturnType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MethodSemanticsAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\MethodSpecification.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\Modifiers.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ModuleDefinition.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ModuleKind.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ModuleReference.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\NativeType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ParameterAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ParameterDefinition.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ParameterDefinitionCollection.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ParameterReference.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\PinnedType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\PInvokeAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\PInvokeInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\PointerType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\PropertyAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\PropertyDefinition.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\PropertyReference.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\ReferenceType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\Resource.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\SecurityDeclaration.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\SentinelType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\TargetRuntime.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\Treatments.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\TypeAttributes.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\TypeDefinition.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\TypeDefinitionCollection.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\TypeParser.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\TypeReference.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\TypeSpecification.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\TypeSystem.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\VariantType.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Cecil\WindowsRuntimeProjections.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Collections.Generic\Collection.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Collections.Generic\ReadOnlyCollection.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Security.Cryptography\CryptoConvert.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono.Security.Cryptography\CryptoService.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono\Disposable.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono\Empty.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\Mono\Type.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\ProjectInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\mdb\Mono.Cecil.Mdb\MdbReader.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\mdb\Mono.Cecil.Mdb\MdbWriter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\mdb\Mono.CompilerServices.SymbolWriter\MonoSymbolFile.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\mdb\Mono.CompilerServices.SymbolWriter\MonoSymbolTable.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\mdb\Mono.CompilerServices.SymbolWriter\MonoSymbolWriter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\mdb\Mono.CompilerServices.SymbolWriter\SourceMethodBuilder.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\mdb\Mono.CompilerServices.SymbolWriter\SymbolWriterImpl.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\BitAccess.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\BitSet.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\CvInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\DataStream.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\DbiDbgHdr.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\DbiHeader.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\DbiModuleInfo.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\DbiSecCon.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\Interfaces.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\IntHashTable.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\MsfDirectory.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbConstant.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbDebugException.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbException.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbFile.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbFileHeader.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbFunction.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbLine.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbLines.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbReader.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbScope.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbSlot.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbSource.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\PdbTokenLine.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\SourceLocationProvider.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb\ISymUnmanagedDocumentWriter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb\ISymUnmanagedWriter2.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb\ModuleMetadata.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb\NativePdbReader.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb\NativePdbWriter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb\PdbHelper.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb\SymDocumentWriter.cs" />
+     <Compile Include="Assets\The3rd\ILRuntime\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb\SymWriter.cs" />
+     <Compile Include="Assets\The3rd\TreeMenu\NodeData.cs" />
+     <Compile Include="Assets\The3rd\TreeMenu\NodeUI.cs" />
+     <Compile Include="Assets\The3rd\TreeMenu\TreeMenu.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineBlendListCamera.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineBrain.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineClearShot.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineCollider.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineConfiner.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineDollyCart.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineExternalCamera.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineFollowZoom.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineFreeLook.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineMixingCamera.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachinePath.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachinePipeline.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineSmoother.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineSmoothPath.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineStateDrivenCamera.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineTargetGroup.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Behaviours\CinemachineVirtualCamera.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Components\CinemachineBasicMultiChannelPerlin.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Components\CinemachineComposer.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Components\CinemachineFramingTransposer.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Components\CinemachineGroupComposer.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Components\CinemachineHardLockToTarget.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Components\CinemachineHardLookAt.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Components\CinemachineOrbitalTransposer.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Components\CinemachinePOV.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Components\CinemachineSameAsFollowObject.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Components\CinemachineTrackedDolly.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Components\CinemachineTransposer.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\AxisState.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\CameraState.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\CinemachineBlend.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\CinemachineBlenderSettings.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\CinemachineComponentBase.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\CinemachineCore.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\CinemachineDebugLogger.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\CinemachineExtension.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\CinemachinePathBase.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\CinemachinePropertyAttribute.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\CinemachineVirtualCameraBase.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\GaussianFilter.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\ICinemachineCamera.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\ICinemachineComponent.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\LensSettings.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\NoiseSettings.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\Predictor.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\ReflectionHelpers.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\SplineHelpers.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Base\Runtime\Core\UnityVectorExtensions.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\PostFX\CinemachinePostFX.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\PostFX\CinemachinePostProcessing.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Timeline\CinemachineMixer.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Timeline\CinemachineShot.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Cinemachine\Timeline\CinemachineTrack.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\CinemachineExamples\Scenes\Scripting\ScriptingExample.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\CinemachineExamples\Scenes\Trigger volumes\GenericTrigger.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\CinemachineExamples\Shared\Models\UnityCharacter\Scripts\CharacterMovement.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\CinemachineExamples\Shared\Models\UnityCharacter\Scripts\CharacterMovement2D.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\CinemachineExamples\Shared\Scripts\ActivateCamera.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\CinemachineExamples\Shared\Scripts\ActivateCameraWithDistance.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\CinemachineExamples\Shared\Scripts\ActivateCamOnPlay.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\CinemachineExamples\Shared\Scripts\ActivateObject.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\CinemachineExamples\Shared\Scripts\ActivateTimeline.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\CinemachineExamples\Shared\Scripts\ExampleHelpWindow.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\CinemachineExamples\Shared\Scripts\MixingCameraBlend.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Samples\Scripts\Rotate.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Samples\Scripts\Swing.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Scripts\DrawSceneObject.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Scripts\DrawTargetObject.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Scripts\FollowTargetObject.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Scripts\MipmappedShadowFallback.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Scripts\ShadowTextureRenderer.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Unity-Logs-Viewer\Reporter\MultiKeyDictionary.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Unity-Logs-Viewer\Reporter\Reporter.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Unity-Logs-Viewer\Reporter\ReporterGUI.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Unity-Logs-Viewer\Reporter\ReporterMessageReceiver.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Unity-Logs-Viewer\Reporter\Test\Rotate.cs" />
+     <Compile Include="Assets\The3rd\UnityExtendTools\Unity-Logs-Viewer\Reporter\Test\TestReporter.cs" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-HSV.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\ShadowWithLinearFalloff.shader" />
+     <None Include="Assets\GameRes\BundleRes\Data\Config\GuideConfig.txt" />
+     <None Include="Assets\GameRes\BundleRes\Data\FBMaplPosSetting.txt" />
+     <None Include="Assets\EditorTools\HeroModelSetting.txt" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Blit\Downsample.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\Dynamic\MipmappedShadow.shader" />
+     <None Include="Assets\GameRes\BundleRes\Data\MapData\10102.txt" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIHsvModifier).shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIDissolve).shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Readme.txt" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Blit\DownsampleFallback.shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIParticle\Shaders\UIAlphaBlended.shader" />
+     <None Include="Assets\GameRes\BundleRes\Data\MapData\10101.txt" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\Dynamic\ShadowWithoutFalloff.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Blit\Blit.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\Dynamic\LightxShadowWithLinearFalloff.shader" />
+     <None Include="Assets\GameRes\Resources\VersionCheck\VerCheckLang.txt" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Shadow\ShadowTransparent.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Shadow\ShadowOpaque.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\MipmappedShadow.shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIShiny).shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Caps\tex2DlodExtensionCheck.shader" />
+     <None Include="Assets\GameRes\BundleRes\Data\Config\MapConfig.txt" />
+     <None Include="Assets\The3rd\ILRuntime\Mono.Cecil\LICENSE.txt" />
+     <None Include="Assets\GameRes\BundleRes\Data\Config\SettingConfig.txt" />
+     <None Include="Assets\GameRes\BundleRes\Data\Config\GuideStepConfig.txt" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIDissolve).shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIShiny).shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIParticle\Shaders\UIAdditive.shader" />
+     <None Include="Assets\The3rd\Spine\version.txt" />
+     <None Include="Assets\The3rd\UnityExtendTools\Cinemachine\ReleaseNotes.txt" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\LightxShadowWithoutFalloff.shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIDissolve).shader" />
+     <None Include="Assets\GameRes\Resources\Shader\UIWhite.shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIEffect).shader" />
+     <None Include="Assets\link.xml" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Dissolve.shader" />
+     <None Include="Assets\StreamingAssets\build_info.txt" />
+     <None Include="Assets\GameRes\BundleRes\Data\Config\FunOpenConfig.txt" />
+     <None Include="Assets\GameRes\Resources\Shader\UIGray.shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UIEffect).shader" />
+     <None Include="Assets\GameRes\BundleRes\Data\HeroModelSetting.txt" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\LightxShadowWithLinearFalloff.shader" />
+     <None Include="Assets\The3rd\DOTween\readme.txt" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Shaders\UI-EffectCapture.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\LightWithLinearFalloff.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\ShadowWithoutFalloff.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\Dynamic\LightxShadowWithoutFalloff.shader" />
+     <None Include="Assets\GameRes\BundleRes\Data\Config\EffectConfig.txt" />
+     <None Include="Assets\GameRes\BundleRes\Data\Config\TaskConfig.txt" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIHsvModifier).shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Shadow\ShadowForReplacement.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Caps\glslCheck.shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_Sprite (UITransition).shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Sprite.cginc" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\DSPProjector.cginc" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIEffect).shader" />
+     <None Include="Assets\GameRes\Resources\Shader\UILight.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\LightWithoutFalloff.shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UIShiny).shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Shiny.shader" />
+     <None Include="Assets\GameRes\Resources\Shader\UIFlash.shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\UI-Effect-TMPro.cginc" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Projector\Dynamic\ShadowWithLinearFalloff.shader" />
+     <None Include="Assets\_Readme.txt" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF-Mobile (UITransition).shader" />
+     <None Include="Assets\GameRes\BundleRes\Data\Config\GuideLevelConfig.txt" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Blit\Blur.shader" />
+     <None Include="Assets\___Template\说明.txt" />
+     <None Include="Assets\GameRes\BundleRes\Data\Config\LanguageConfig.txt" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect-Transition.shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Blit\CopyMipmap.shader" />
+     <None Include="Assets\GameRes\BundleRes\Data\BuildPolygonSetting.txt" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\Shaders\UI-Effect.cginc" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UIHsvModifier).shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Blit\EraseShadow.shader" />
+     <None Include="Assets\The3rd\Coffee\UIExtensions\UIEffect\ForTMPro\Shaders\TMP_SDF (UITransition).shader" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Blit\Downsample.cginc" />
+     <None Include="Assets\GameRes\BundleRes\Data\Config\ItemConfig.txt" />
+     <None Include="Assets\The3rd\UnityExtendTools\DynamicShadowProjector\Shaders\Shadow\DSPShadow.cginc" />
+ <Reference Include="Unity.Timeline.Editor">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.multiplayer-hlapi.Editor">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VSCode.Editor">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.CollabProxy.Editor">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.multiplayer-weaver.Editor">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Rider.Editor">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Tilemap.Editor">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.SpatialTracking">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Analytics.DataPrivacy">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+ <HintPath>F:/Framework/Client/Project/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.AIModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ARModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.AccessibilityModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.AndroidJNIModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AndroidJNIModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.AnimationModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.AssetBundleModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.AudioModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ClothModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.CoreModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.CrashReportingModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.DSPGraphModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.DSPGraphModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.DirectorModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.FileSystemHttpModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.FileSystemHttpModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.GameCenterModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.GridModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HotReloadModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.HotReloadModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.IMGUIModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ImageConversionModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.InputModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.InputLegacyModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.InputLegacyModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.JSONSerializeModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.LocalizationModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.LocalizationModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ParticleSystemModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PerformanceReportingModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PhysicsModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Physics2DModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ProfilerModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.ProfilerModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ScreenCaptureModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SharedInternalsModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpriteMaskModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpriteShapeModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StreamingModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.StreamingModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SubstanceModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.SubstanceModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TLSModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.TLSModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TerrainModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TerrainPhysicsModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TextCoreModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.TextCoreModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TextRenderingModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TilemapModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UIModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UIElementsModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UNETModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UmbraModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UmbraModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityAnalyticsModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityConnectModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityTestProtocolModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityTestProtocolModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityWebRequestModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VFXModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.VFXModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VRModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VehiclesModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VideoModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.WebGLModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/PlaybackEngines/WebGLSupport/Managed/UnityEngine.WebGLModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.WindModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.XRModule">
+ <HintPath>E:/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+ </Reference>
+ <Reference Include="websocket-sharp">
+ <HintPath>F:/Framework/Client/Project/Assets/Plugins/websocket/websocket-sharp.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>F:/Framework/Client/Project/Assets/The3rd/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Analytics.Editor">
+ <HintPath>F:/Framework/Client/Project/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Analytics.StandardEvents">
+ <HintPath>F:/Framework/Client/Project/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Analytics.Tracker">
+ <HintPath>F:/Framework/Client/Project/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+ </Reference>
+ <Reference Include="mscorlib">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
+ </Reference>
+ <Reference Include="System">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Core">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Core.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.Serialization">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Runtime.Serialization.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Xml">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Xml.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Xml.Linq">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Xml.Linq.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Numerics">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Numerics.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Numerics.Vectors">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Numerics.Vectors.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.Http">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Net.Http.dll</HintPath>
+ </Reference>
+ <Reference Include="Microsoft.CSharp">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Microsoft.CSharp.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Data">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Data.dll</HintPath>
+ </Reference>
+ <Reference Include="Microsoft.Win32.Primitives">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/Microsoft.Win32.Primitives.dll</HintPath>
+ </Reference>
+ <Reference Include="netstandard">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/netstandard.dll</HintPath>
+ </Reference>
+ <Reference Include="System.AppContext">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.AppContext.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Collections.Concurrent">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.Concurrent.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Collections">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Collections.NonGeneric">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.NonGeneric.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Collections.Specialized">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.Specialized.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ComponentModel.Annotations">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.Annotations.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ComponentModel">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ComponentModel.EventBasedAsync">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.EventBasedAsync.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ComponentModel.Primitives">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.Primitives.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ComponentModel.TypeConverter">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.TypeConverter.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Console">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Console.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Data.Common">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Data.Common.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Diagnostics.Contracts">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Contracts.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Diagnostics.Debug">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Debug.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Diagnostics.FileVersionInfo">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.FileVersionInfo.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Diagnostics.Process">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Process.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Diagnostics.StackTrace">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.StackTrace.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Diagnostics.TextWriterTraceListener">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Diagnostics.Tools">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Tools.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Diagnostics.TraceSource">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.TraceSource.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Drawing.Primitives">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Drawing.Primitives.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Dynamic.Runtime">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Dynamic.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Globalization.Calendars">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.Calendars.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Globalization">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Globalization.Extensions">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.Compression.ZipFile">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.Compression.ZipFile.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.FileSystem">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.FileSystem.DriveInfo">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.DriveInfo.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.FileSystem.Primitives">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.Primitives.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.FileSystem.Watcher">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.Watcher.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.IsolatedStorage">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.IsolatedStorage.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.MemoryMappedFiles">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.MemoryMappedFiles.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.Pipes">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.Pipes.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.UnmanagedMemoryStream">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.UnmanagedMemoryStream.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Linq">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Linq.Expressions">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Expressions.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Linq.Parallel">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Parallel.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Linq.Queryable">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Queryable.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.Http.Rtc">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Http.Rtc.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.NameResolution">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.NameResolution.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.NetworkInformation">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.NetworkInformation.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.Ping">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Ping.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.Primitives">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Primitives.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.Requests">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Requests.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.Security">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Security.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.Sockets">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Sockets.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.WebHeaderCollection">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebHeaderCollection.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.WebSockets.Client">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebSockets.Client.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Net.WebSockets">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebSockets.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ObjectModel">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ObjectModel.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Reflection">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Reflection.Emit">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Reflection.Emit.ILGeneration">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.ILGeneration.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Reflection.Emit.Lightweight">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.Lightweight.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Reflection.Extensions">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Reflection.Primitives">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Primitives.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Resources.Reader">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.Reader.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Resources.ResourceManager">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.ResourceManager.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Resources.Writer">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.Writer.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.CompilerServices.VisualC">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.CompilerServices.VisualC.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.Extensions">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.Handles">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Handles.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.InteropServices">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.Numerics">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Numerics.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.Serialization.Formatters">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Formatters.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.Serialization.Json">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.Serialization.Primitives">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Primitives.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.Serialization.Xml">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Xml.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Security.Claims">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Claims.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Security.Cryptography.Algorithms">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Algorithms.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Security.Cryptography.Csp">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Csp.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Security.Cryptography.Encoding">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Encoding.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Security.Cryptography.Primitives">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Primitives.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Security.Cryptography.X509Certificates">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.X509Certificates.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Security.Principal">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Principal.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Security.SecureString">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.SecureString.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ServiceModel.Duplex">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Duplex.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ServiceModel.Http">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Http.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ServiceModel.NetTcp">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.NetTcp.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ServiceModel.Primitives">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Primitives.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ServiceModel.Security">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Security.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Text.Encoding">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.Encoding.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Text.Encoding.Extensions">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.Encoding.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Text.RegularExpressions">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.RegularExpressions.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Threading">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Threading.Overlapped">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Overlapped.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Threading.Tasks">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Tasks.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Threading.Tasks.Parallel">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Tasks.Parallel.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Threading.Thread">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Thread.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Threading.ThreadPool">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.ThreadPool.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Threading.Timer">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Timer.dll</HintPath>
+ </Reference>
+ <Reference Include="System.ValueTuple">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ValueTuple.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Xml.ReaderWriter">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.ReaderWriter.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Xml.XDocument">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XDocument.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Xml.XmlDocument">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XmlDocument.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Xml.XmlSerializer">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XmlSerializer.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Xml.XPath">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Xml.XPath.XDocument">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityScript">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/UnityScript.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityScript.Lang">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/UnityScript.Lang.dll</HintPath>
+ </Reference>
+ <Reference Include="Boo.Lang">
+ <HintPath>E:/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="spine-unity.csproj">
+      <Project>{EED81C30-327F-DB8D-4D4E-C6584F3C4347}</Project>
+      <Name>spine-unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AssetBundleBrowser.Editor.csproj">
+      <Project>{BE781317-D824-8EBC-FF3E-7742ED84D2C6}</Project>
+      <Name>Unity.AssetBundleBrowser.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.UIParticle.csproj">
+      <Project>{D35F457F-4A00-0CF7-9BBF-1E0D418CEE4C}</Project>
+      <Name>Coffee.UIParticle</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-editor.csproj">
+      <Project>{6D54241C-FAC8-53C1-4073-CF7BFB42A039}</Project>
+      <Name>spine-unity-editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.UIParticle.Editor.csproj">
+      <Project>{4ABA1ED8-1D4F-63F7-6512-C797A07F1BD9}</Project>
+      <Name>Coffee.UIParticle.Editor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

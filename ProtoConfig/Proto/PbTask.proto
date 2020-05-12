@@ -1,0 +1,97 @@
+//任务相关
+syntax = "proto3";
+package PbTask;
+
+//收到任务列表信息
+message SC_taskLine_list
+{
+	repeated One_taskLine_item TaskLineList = 1;	//任务线信息	
+	repeated One_taskBounty_item TaskBountyList = 2;//赏金任务信息
+}
+
+//单个任务信息
+message One_taskLine_item
+{
+	int32 Line = 1;			//任务线ID
+	int32 TaskId = 2;		//当前任务线对应的任务Id(0表示当前线没有任务)
+	int32 Progress = 3;		//完成进度
+	int32 Index = 4;			//当前线索引
+}
+
+//任务线发进度发生改变
+message SC_taskLine_change
+{
+	One_taskLine_item Task = 1;
+}
+
+//请求领取任务线上的任务奖励
+message CS_taskLine_get
+{
+	int32 Line = 1;			//任务线
+}
+
+//#收到领取完奖励重发任务线信息
+message SC_taskLine_get
+{
+	One_taskLine_item Task = 1;
+}
+
+///////////////////////////////////////////////////////////
+//收到单个赏金任务信息
+message One_taskBounty_item
+{
+	int32 TaskId = 1;		//任务Id
+	int32 Progress = 2;		//完成进度
+	bool IsGet = 3;			//奖励是否已领取
+	int32 RefreshTime = 4;	//完成12小时后刷新（可加速立即刷新）没领奖时为0
+}
+
+//请求领取赏金任务奖励
+message CS_taskBounty_get
+{
+	int32 TaskId = 1;		//任务Id
+}
+//收到领取赏金任务奖励结果
+message SC_taskBounty_get
+{
+	int32 TaskId = 1;		//成功领取的奖励任务ID
+	repeated One_taskAward Awards = 2;//获得的任务奖励列表
+	int32 RefreshTime = 3;	//下次刷新时间，没领奖时为0
+}
+
+message One_taskAward
+{
+	int32 TemplId = 1;		//物品Id(负数为英雄)
+	int32 Num = 2;			//数量
+}
+
+//请求赏金任务加速刷新
+message CS_taskBounty_clearCD
+{
+	int32 TaskId = 1;		//任务Id
+}
+//收到赏金任务加速刷新
+message SC_taskBounty_clearCD
+{
+	int32 TaskId = 1;		//移除的任务Id
+	One_taskBounty_item TaskNew = 2;	//新任务
+}
+
+//请求赏金任务时间完成（有赏金任务CD时间已到时请求【未领奖的不请求】）
+message CS_taskBounty_timeEnd
+{
+	int32 TaskId = 1;		//任务Id
+}
+//收到赏金任务时间完成
+message SC_taskBounty_timeEnd
+{
+	int32 TaskId = 1;		//移除的任务Id
+	One_taskBounty_item TaskNew = 2;	//新的赏金任务
+}
+
+//收到单个赏金任务进度发生改变
+message SC_taskBounty_change
+{
+	int32 TaskId = 1;		//任务Id
+	int32 Progress = 2;		//完成进度
+}

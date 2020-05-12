@@ -1,0 +1,81 @@
+//活动相关
+syntax = "proto3";
+package PbActivity;
+
+//请求活动信息
+message CS_Activity_Info
+{
+
+}
+
+//收到活动信息
+message SC_Activity_Info
+{
+	repeated One_Activity ActivityList = 1;		//活动列表
+}
+
+//一个活动数据
+message One_Activity
+{
+	int32 MID = 1;								//活动编号
+	string Name = 2;							//玩家名
+	int32 Start = 3;							//开始时间
+	int32 End = 4;								//结束时间
+	string Icon = 5;							//活动图标
+	string Des = 6;								//活动描述
+	repeated One_Activity_Task TaskList = 7;	//活动任务列表
+	string FunOpenArg = 8;						//功能开放
+	int32 GuideGoType = 9;						//前往类型 0无 1:打开UI
+	string GuideGoStrArg = 10;					//前往字符串参数
+	repeated int32 GuideGoIntArg = 11;			//前往Int参数
+	int32 OrderId = 12;							//活动排序Id
+}
+
+//一个活动任务数据
+message One_Activity_Task
+{
+	int32 MID = 1;								//活动任务编号
+	string Name = 2;							//玩家名
+	string Des = 3;								//描述
+	int32 ActID = 4;							//对应活动编号
+	repeated int32 Condition = 5;				//完成条件
+	int32 Progress = 6;							//任务进度
+	repeated One_Activity_Award Award = 7;		//任务奖励
+	bool IsGet = 8;								//是否已领取
+	int32 OrderId = 9;							//任务排序Id
+	int32 Type = 10;							//任务类型
+}
+
+//一个奖励数据
+message One_Activity_Award
+{
+	int32 ItemId = 1;							//道具Id
+	int32 Count = 2;							//数量
+}
+
+//活动进度发生改变
+message SC_Activity_Change
+{
+	int32 TaskId = 1;							//活动任务Id
+	int32 Progress = 2;							//完成进度
+}
+
+//请求领取活动任务奖励
+message CS_Activity_Get
+{
+	int32 TaskId = 1;							//活动任务Id
+}
+
+//收到领取活动任务奖励
+message SC_Activity_Get
+{
+	int32 TaskId = 1;							//活动任务Id
+	int32 Progress = 2;							//完成进度
+	bool IsGet = 3;								//是否已领取
+}
+
+//收到活动列表更新状态（下次打开活动界面时重新请求活动数据）
+message SC_Activity_Update
+{
+
+}

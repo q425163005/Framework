@@ -1,0 +1,143 @@
+//玩家数据
+syntax = "proto3";
+package PbPlayer;
+
+//收到每天0点重置数据
+message SC_player_resetData
+{
+	int32 KeepLoginNum = 1;		//连续登录次数
+	int32 SingInNum = 2;			//每日签到剩余次数
+	int32 FreeGameCoinNum = 3;		//每天免费领取游戏币次数
+	int32 HolidayNum = 4;		//度假剩余次数
+}
+
+
+//收到玩家虚拟物品更新
+message SC_player_updateVirtual
+{
+	int32 VirtualType = 1;	//虚拟物品类型 EItemSubTypeVirtual
+	int64 Value = 2;		//值
+}
+
+//收到玩家经验发生改变
+message SC_player_exp
+{
+	int32 Level = 1;			//角色等级
+	int32 Exp=2;			//当前经验
+	int32 AddExp = 3;		//增加经验(提示用)	
+}
+//保存指引步骤
+message CS_save_guide
+{
+	int32 GuideId = 1;
+}
+//保存指引小步骤
+message CS_save_guideStep
+{
+	int32 GuideStepId = 1;
+}
+
+//红点用到的一些数据
+message SC_player_redDot
+{
+	int32 RankRachWarNum = 1;				//升班赛 今日剩余挑战次数		
+	int32 RankRachLastWarTime = 2;				//升班赛 上次挑战时间(有CD时:传上次挑战时间戳 其他时为0)
+	bool RankRachGetAward = 3;				//升班赛 是否可领奖
+
+	int32 MineLeftNum = 4;		//矿山剩余次数
+	int32 MineCurrEndTime = 5;		//当前矿山结束时间
+	int32 BusADLeftNum = 6;		//广告活动剩余次数
+	int32 BusADCurrEndTime = 7;	//当前广告活动结束时间
+
+	int32 ExploreLeftNum = 8;		//探索剩余次数		
+	int32 ExploreCurrEndTime = 9;	//探索结束时间
+	bool GuessAward = 10;		//竞猜是否有奖励未领取
+
+	int32 JocDiningEatNum = 11;	//骑师餐厅进餐次数
+}
+
+//请求玩家改名
+message CS_player_changeName
+{
+	string Name = 1;					//新的名字
+}
+
+//收到玩家改名
+message SC_player_changeName
+{
+	Enum_changeName_result Result = 1;	//改名结果
+	string Name = 2;					//新的名字
+	int32 ReNameNum = 3;				//已改名次数
+}
+
+//请求玩家修改头像
+message CS_player_changeIcon
+{
+	repeated int32 Icon = 1;			//头像[头像、背景、角标]
+}
+
+//收到玩家修改头像
+message SC_player_changeIcon
+{
+	repeated int32 Icon = 1;			//头像[头像、背景、角标]
+} 
+
+//请求购买金币
+message CS_player_buyGold
+{
+
+}
+
+//收到购买金币
+message SC_player_buyGold
+{
+	int32 gold = 1;						//金币增加的数量
+}
+
+//收到玩家行动点发生改变
+message SC_player_point
+{
+	int32 ActionPoint = 1;				//副本行动点数
+	int32 ArenaPoint = 2;				//竞技行动点数
+	int32 BossPoint = 3;				//公会Boss行动点
+	int32 NextAddAPTime = 4;			//下次恢复副本行动点时间戳
+	int32 NextAddARPTime = 5;			//下次恢复竞技行动点时间戳
+	int32 NextAddBPTime = 6;			//下次恢复公会行动点时间戳
+}
+
+//请求钻石补齐资源
+message CS_player_buyRes
+{
+	int32 ResType = 1;					//资源类型
+	int32 LessNum = 2;					//补齐的数量
+}
+//收到钻石补齐资源
+message SC_player_buyRes
+{
+	int32 ResType = 1;					//资源类型
+	int32 LessNum = 2;					//补齐的数量
+}
+
+//请求补满体力
+message CS_player_buyEnergy
+{
+	int32 EnergyType = 1;				//体力类型 0副本 1竞技 2泰坦
+	int32 CostType = 2;					//花费类型 0钻石 1道具
+}
+//收到补满体力
+message SC_player_buyEnergy
+{
+	int32 EnergyType = 1;				//体力类型 0副本 1竞技 2泰坦
+	int32 CostType = 2;					//花费类型 0钻石 1道具
+	int32 Num = 3;						//被补满的体力值
+}
+
+//角色改名结果
+enum Enum_changeName_result
+{
+	CnUnknown = 0;		//未知错误
+	CnSucceed = 1;		//成功
+	CnSameName = 2;		//角色名已存在
+	CnMaxLen = 3;		//角色名字符过长
+	CnIllegalChar = 4;	//角色名中有非法字符
+}

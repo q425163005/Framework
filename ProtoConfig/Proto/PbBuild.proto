@@ -1,0 +1,221 @@
+//建筑相关
+syntax = "proto3";
+package PbBuild;
+
+//收到建筑列表
+message SC_build_list
+{
+	repeated One_buildInfo List = 1;//建筑列表
+	repeated int32 ForgeIds = 2;	//工坊已开启的ids
+	repeated int32 TrainingIds = 3;	//训练场已开启的ids
+	repeated int32 SmithyIds = 4;	//铁匠铺已开启的ids
+}
+//一个建筑数据
+message One_buildInfo
+{
+	int32 SID = 1;					//建筑SID
+	int32 TemplID = 2;				//建筑模板id	
+	int32 Level = 3;				//.
+	int32 Location = 4;				//建筑位置
+	int32 BuildTime = 5;			//建造、升级、转换完成时间
+	int32 OutTime = 6;				//生产完成时间
+	int32 GetTime = 7;				//上次收取资源时间
+	Enum_build_state State = 8;		//建筑状态
+	int32 OutputId = 10;			//正在生产的Id(角斗场表示上次收取食物时间)
+	int32 OutputNum = 11;			//正在生产的数量(角斗场表示上次收取石头时间)
+	int32 FromId = 12;				//从哪个建筑改造过来的SID
+}
+//建筑状态结构枚举
+enum Enum_build_state
+{
+	BsNormal = 0;	//正常
+	BsBeingBuilt = 1;	//建造中
+	BsUpgrade = 2;	//升级中
+	BsOutput = 3;	//生产中
+	BsCanGet = 4;	//可收取（制造、训练用）
+	BsResearch = 5; //研究中
+	BsTransform = 6;//转换中
+}
+
+//请求新增建筑
+message CS_build_new
+{
+	int32 Loc = 1;					//位置号
+	int32 TemplID = 2;				//建筑模板id
+}
+//收到新增建筑
+message SC_build_new
+{
+	One_buildInfo BuildNew = 1;		//新建筑信息
+}
+
+//请求建筑升级
+message CS_build_upgrade
+{
+	int32 SID = 1;					//建筑SID
+}
+//收到建筑升级
+message SC_build_upgrade
+{
+	int32 SID = 1;					//建筑SID
+	int32 BuildTime = 2;			//建造完成时间
+}
+
+//请求建筑建造、升级完成
+message CS_build_upgradeEnd
+{
+	int32 SID = 1;					//建筑SID
+}
+//收到建筑升级完成
+message SC_build_upgradeEnd
+{
+	int32 SID = 1;					//建筑SID
+	int32 Level = 2;				//建筑等级
+	int32 BuildTime = 3;			//建造完成时间
+	int32 GetTime = 4;				//上次收取资源时间
+	Enum_build_state State = 5;		//建筑状态
+}
+
+//请求获取建筑资源
+message CS_build_getRes
+{
+	int32 SID = 1;					//建筑SID
+}
+//收到获取建筑资源
+message SC_build_getRes
+{
+	int32 SID = 1;					//建筑SID
+	int32 GetTime = 2;				//上次收取资源时间
+	int32 OutTime = 3;				//生产完成时间
+	int32 OpenId = 4;				//研究完成后开启的Id(角斗场表示上次收取食物时间)
+	Enum_build_state State = 5;		//建筑状态
+	int32 OutNum = 6;				//生产数量(角斗场表示上次收取石头时间)
+	bool IsSucceed = 7;				//是否收取成功(训练营收英雄用)
+}
+
+//请求建筑换位
+message CS_build_change
+{
+	int32 SID = 1;					//要移动的建筑SID
+	int32 TargetLoc = 2;			//要移动到的目标位置
+}
+//收到建筑换位
+message SC_build_change
+{
+	int32 SID = 1;					//要移动的建筑SID
+	int32 TargetLoc = 2;			//要移动到的目标位置
+	int32 TargetSID = 3;			//目标建筑SID
+}
+
+//请求建筑建造加速
+message CS_build_skipWait
+{
+	int32 SID = 1;					//建筑SID
+}
+//收到建筑建造加速
+message SC_build_skipWait
+{
+	int32 SID = 1;					//建筑SID
+	int32 Level = 2;				//建筑等级
+	int32 BuildTime = 3;			//建造完成时间
+	int32 GetTime = 4;				//上次收取资源时间
+}
+
+//请求建筑研究（工坊、训练营生产之前需先开启）
+message CS_build_research
+{
+	int32 SID = 1;					//建筑SID
+	int32 ItemId = 2;				//生产项ID
+}
+//收到建筑研究（工坊、训练营）
+message SC_build_research
+{
+	int32 SID = 1;					//建筑SID
+	int32 ItemId = 2;				//生产项ID
+	int32 OutTime = 3;				//生产完成时间
+}
+
+//请求建筑开始生产（制作、训练）
+message CS_build_work
+{
+	int32 SID = 1;					//建筑SID
+	int32 ItemId = 2;				//生产项ID
+}
+//收到建筑开始生产（制作、训练）
+message SC_build_work
+{
+	int32 SID = 1;					//建筑SID
+	int32 ItemId = 2;				//生产项ID
+	int32 Num = 3;					//生产的数量
+	int32 GetTime = 4;				//上次收取资源时间
+	int32 OutTime = 5;				//生产完成时间
+}
+
+//请求建筑增减生产数量（制作、训练）
+message CS_build_workNum
+{
+	int32 SID = 1;					//建筑SID
+	int32 ItemId = 2;				//生产项ID
+	int32 Add = 3;					//0减少 1增加
+}
+//收到建筑增减生产数量（制作、训练）
+message SC_build_workNum
+{
+	int32 SID = 1;					//建筑ID
+	int32 ItemId = 2;				//生产项ID
+	int32 OutTime = 3;				//生产完成时间
+	int32 Num = 4;					//生产的数量
+}
+
+//请求建筑生产、研究（制作、训练）加速
+message CS_build_workQuickly
+{
+	int32 SID = 1;					//建筑SID
+}
+//收到建筑生产、研究（制作、训练）加速
+message SC_build_workQuickly
+{
+	int32 SID = 1;					//建筑SID
+	int32 GetTime = 2;				//上次收取资源时间
+	int32 OutTime = 3;				//生产完成时间
+}
+
+//请求建筑改造(低级建筑=>高级建筑)
+message CS_build_remould
+{
+	int32 SID = 1;					//建筑SID
+	int32 TemplID = 2;				//改造的建筑模板id
+}
+//收到建筑改造
+message SC_build_remould
+{
+	One_buildInfo Build = 1;		//原建筑信息(状态为 转换中)
+	One_buildInfo BuildNew = 2;		//新建筑信息(状态为 建造中)[建造完成时客户端根据fromId自行还原建筑状态]
+}
+
+//请求建筑切换
+message CS_build_transform
+{
+	int32 SID = 1;					//原建筑SID
+	int32 TargetSID = 2;			//转换目标建筑SID
+}
+//收到建筑切换
+message SC_build_transform
+{
+	//转换过程中,两方都有fromId互为对方SID
+	One_buildInfo Build = 1;		//原建筑信息
+	One_buildInfo TargetBuild = 2;	//转换目标建筑信息
+}
+
+//请求建筑切换完成
+message CS_build_transEnd
+{
+	int32 SID = 1;					//建筑SID
+}
+//收到建筑切换完成
+message SC_build_transEnd
+{
+	//转换完成时,fromId只有非空闲状态下的高级建筑才有
+	One_buildInfo Build = 1;		//当前建筑信息
+	One_buildInfo BeforeBuild = 2;	//转换前的建筑信息
+}

@@ -1,0 +1,16 @@
+﻿[
+	{
+		"ServerId":1,
+		"State":0,
+		"Flag":1,
+		"ServerName":"MK调试服",
+		"URL":"ws://180.76.242.101:4051"
+	},
+	{
+		"ServerId":1,
+		"State":0,
+		"Flag":1,
+		"ServerName":"DDD内网服",
+		"URL":"ws://192.168.0.108:4051"
+	}
+]

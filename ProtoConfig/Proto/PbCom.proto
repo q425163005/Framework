@@ -1,0 +1,41 @@
+//公用结构体
+syntax = "proto3";
+import "PbHero.proto";
+import "PbBag.proto";
+package PbCom;
+
+//公用玩家信息
+message Com_Player
+{
+	int32 SID = 1;			//玩家SID
+	string Name = 2;			//玩家名字
+}
+
+//一个奖励物品
+message One_AwardItem
+{
+	int32 ItemId = 1;		//物品模板id(负数表示英雄)
+	int32 Count = 2;		//数量
+}
+
+//一个其他玩家信息
+message One_PlayerInfo
+{
+	int32 SID = 1;								//玩家SID
+	string Name = 2;							//玩家名
+	int32 Level = 3;							//等级
+	int32 Score = 4;							//玩家积分
+	int32 Rank = 5;								//玩家排名
+	repeated PbHero.One_heroInfo Heros = 6;		//5个英雄信息
+	repeated PbBag.One_bag_equip Equips = 7;	//5个装备信息
+	repeated int32 Icon = 8;					//玩家头像[头像、背景、角标]
+	repeated int32 Res = 9;						//挑战获得资源预览(0食物 1石头 2胜得积分 3负扣积分)--竞技场独有
+	int32 ClubSID = 10;							//所在联盟SID
+	string ClubName = 11;						//所在联盟名
+	int32 ClubIcon = 12;						//联盟图标 
+	int32 ClubIconBg = 13;						//联盟图标背景
+	int32 ClubRole = 14;						//所在联盟职位
+	int32 ClubJoinTime = 15;					//加入联盟时间
+	repeated int32 HeroIds = 16;				//5个英雄的sid及顺序
+	repeated int32 EquipsIds = 17;				//5个装备的sid及顺序
+}

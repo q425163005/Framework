@@ -1,0 +1,11 @@
+﻿使用方法:
+1 选中模板  Shift+Alt+C 复制
+2 选中要复制的到的对象 Shift+Alt+V 粘贴(不带RectTransform信息)
+2 选中要复制的到的对象 Shift+Alt+R 粘贴(带RectTransform信息)
+
+
+注: Text会删除多余的Outline和Shadow
+    Text不会复制UILangText脚本
+	
+只能复制当层级的属性信息，复制子节点的信息要单独选中复制
+	

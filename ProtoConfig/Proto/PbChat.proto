@@ -1,0 +1,91 @@
+//聊天相关
+syntax = "proto3";
+import "PbClub.proto";
+package PbChat;
+
+
+//登录时收到的最近的一条消息
+message SC_chat_lastMsg
+{
+	int32 Type = 1;
+	One_chat_msg Msg = 2;		//最新的一条消息
+}
+
+//收到新的聊天消息
+message SC_chat_newMsg
+{
+	int32 Type = 1;			//消息类型 EChateType
+	One_chat_msg Msg = 2;	//消息内容
+}
+
+//请求历史聊天列表
+message CS_chat_list
+{
+	int32 Type = 1;				//消息类型 EChateType
+	int32 StartIndex = 2;			//从第几个开始请求
+}
+//收到历史聊天列表
+message SC_chat_list
+{
+	int32 Type = 1;				//消息类型 ChateType
+	repeated One_chat_msg List = 2;
+	repeated PbClub.One_club_log LogList = 3;//联盟日志（联盟聊天才有）
+}
+
+
+//一个聊天消息内容
+message One_chat_msg
+{
+	int32 SID = 1;			//发送者SID  
+	string Name = 2;			//发送者名字	(SID==自己 为接收者名字)
+	int32 VipLv = 3;			//发送者VIP等级
+	repeated int32 Icon = 4;	//发送者头像[头像、背景、角标]
+	string Content = 5;		//发送消息内容	
+	bool IsParse = 6;		//是否需要解析Content
+	string Club = 7;		//联盟名（公聊有，联盟聊天没有）
+	int32 Role = 8;			//联盟职位（公聊没有，联盟聊天有）
+	int32 ArenaLv = 9;		//竞技场段位（0为没有段位）
+	int32 Level = 10;		//玩家等级
+	int32 Time = 11;		//发送时间
+}
+
+//请求发送聊天消息
+message CS_chat_send
+{
+	int32 Type = 1;			//消息类型 ChateType
+	int32 PrivateSID = 2;		//私聊对象ID 没有不填
+	string Content = 3;		//消息内容	
+}
+
+//请求聊天屏蔽列表
+message CS_chat_shieldList
+{
+
+}
+//收到聊天屏蔽列表
+message SC_chat_shieldList
+{
+	repeated One_chat_shield ShieldList = 1;	//屏蔽列表
+}
+//一条聊天屏蔽项
+message One_chat_shield
+{
+	int32 SID = 1;			//被屏蔽的玩家SID
+	string Name = 2;		//被屏蔽的玩家名
+	int32 Level = 3;		//玩家等级
+	repeated int32 Icon = 4;//玩家头像[头像、背景、角标]
+	int32 ArenaLv = 5;		//竞技段位
+}
+
+//请求添加移除聊天屏蔽列表
+message CS_chat_shield
+{
+	int32 Add = 1;			//0移除 1添加
+	int32 SID = 2;			//操作的玩家SID
+}
+//收到添加移除聊天屏蔽列表
+message SC_chat_shield
+{
+	int32 Add = 1;			//0移除 1添加
+	One_chat_shield Shield = 2;			//被操作的玩家项
+}

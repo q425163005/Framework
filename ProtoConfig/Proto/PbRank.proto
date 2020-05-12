@@ -1,0 +1,60 @@
+//排行榜相关
+syntax = "proto3";
+import "PbCom.proto";
+package PbRank;
+
+//请求排行榜数据
+message CS_Rank_List
+{
+	Enum_Rank_type Type = 1;
+}
+
+//收到排行榜数据
+message SC_Rank_List
+{
+	int32 NextRefTime = 1;					//下次刷新排行榜时间戳
+	Enum_Rank_type Type = 2;				//排行榜类型
+	repeated One_Rank_item List = 3;		//排行榜数据
+}
+
+//一个排行数据
+message One_Rank_item
+{
+	int32 PID = 1;							//玩家或联盟SID
+	string Name = 2;						//玩家或联盟名
+	int32 Level = 3;						//玩家或联盟等级
+	repeated int32 Icon = 4;				//玩家或联盟头像[头像、背景、角标](玩家头像是3个，联盟头像只有前2个)
+	int64 Num = 5;							//数值(个人竞技积分、联赛积分、联盟战争积分)
+	int32 Rank = 6;							//排名
+	string ClubOrLeaderName = 7;			//联盟名或会长名（空字符串显示无）
+}
+
+
+//请求查看其他玩家信息
+message CS_rank_lookPlayer
+{
+	int32 SID = 1;							//玩家SID
+	Enum_Look_type LookType = 2;			//查看类型
+}
+//收到查看其他玩家信息
+message SC_rank_lookPlayer
+{
+	PbCom.One_PlayerInfo PlayerInfo = 1;		//玩家信息
+	Enum_Look_type LookType = 2;			//查看类型
+}
+
+//排行类型
+enum Enum_Rank_type
+{
+	RkArena = 0;			//玩家竞技排名
+	RkClub = 1;				//联盟排名
+	RkLeague = 2;			//联赛排名
+}
+
+//查看类型枚举
+enum Enum_Look_type
+{
+	LkNormal = 0;			//默认
+	LkLeague = 1;			//联赛防守战队
+	LkClubWar = 2;			//联盟战争防守战队
+}

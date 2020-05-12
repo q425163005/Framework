@@ -1,0 +1,92 @@
+//老虎机相关
+syntax = "proto3";
+package PbSlot;
+
+
+//请求进入主题馆
+message CS_slot_enterZone
+{
+	int32 ID = 1;					//主题馆ID
+}
+
+//收到进入主题馆结果
+message SC_slot_enterZone
+{
+	int32 ID = 1;					//主题馆ID
+	int32 Score = 2;					//当前馆积分
+	repeated One_slot_rank RankList = 3;	//排名信息
+}
+//主题馆单条排名信息
+message One_slot_rank
+{
+	int32 Rank = 1;		//排名
+	string Name = 2;		//玩家名
+	int32 Score = 3;		//积分	
+}
+
+//请求抽奖旋转
+message CS_slot_spin
+{
+	int32 Line = 1;		//押注线数
+	int32 BetCoin = 2;	//押注金额
+}
+
+//收到抽奖结果
+message SC_slot_spin
+{
+	Enum_slot_spinResult Result = 1;
+	int32 WinMult = 2;					//中奖倍数
+	int32 WinCoin = 3;					//赢得总金额
+	int32 GameCoin = 4;					//玩家抽奖后游戏币数量
+	int32 Score = 5;						//主题馆积分
+	repeated int32 SymbolList = 6;			//抽奖所有符号[15个]
+	repeated One_slot_winLine WinLine = 7;	//中奖线
+	repeated One_slot_rank RankList = 8;		//排名信息
+}
+//一条中奖线
+message One_slot_winLine
+{
+	int32 Line = 1;		//中奖线编号(1-9)
+	int32 Symbol = 2;	//中奖符号
+}
+
+//请求领取免费游戏币
+message CS_slot_getFreeCoin
+{
+	
+}
+//收到领取免费游戏币
+message SC_slot_getFreeCoin
+{
+	int32 FreeCoinNum = 1;	//剩余免费游戏币数量
+}
+
+//请求购买游戏币
+message CS_slot_buyCoin
+{
+	int32 Id = 1;		//购买档次Id
+}
+//收到购买游戏币结果
+message SC_slot_buyCoin
+{
+	Enum_slot_buyResult Result = 1;
+}
+
+
+
+//抽奖结果枚举
+enum Enum_slot_spinResult
+{
+	GrSucceed = 0;		//成功
+	GrUnknown = 1;		//未知错误
+	GrNoOpen = 2;		//未开放
+	GrNotCoin = 3;		//游戏币不足
+}
+
+//抽奖结果枚举
+enum Enum_slot_buyResult
+{
+	BrSucceed = 0;		//成功
+	BrUnknown = 1;		//未知错误
+	BrNoTicket = 2;		//钻石不足
+}

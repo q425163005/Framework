@@ -1,0 +1,20 @@
+//装备研究
+syntax = "proto3";
+package PbEquipUp;
+
+
+//请求装备强化
+message CS_equip_streng
+{
+	int32 SID = 1;					//装备SID
+	repeated int32 EquipIds = 2;	//被吃的装备SID
+}
+
+//收到装备强化结果
+message SC_equip_streng
+{
+	int32 SID = 1;					//装备SID
+	int32 Level = 2;				//强化后的等级 (修改装备数据)
+	int32 Exp = 3;					//当前经验
+	repeated int32 EquipIds = 4;	//被吃的装备SID
+}

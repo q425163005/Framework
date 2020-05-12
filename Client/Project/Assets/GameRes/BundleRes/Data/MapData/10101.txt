@@ -1,0 +1,1 @@
+﻿{"mapType":0,"id":10101,"bg":"bk06","monsterPos":[{"id":101004,"place":13,"OffsetX":0,"OffsetY":0},{"id":101004,"place":2,"OffsetX":0,"OffsetY":0}]}
